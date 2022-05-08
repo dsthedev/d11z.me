@@ -17,6 +17,9 @@ export const createPost = ({ input }) => {
 }
 
 export const updatePost = ({ id, input }) => {
+  if (input.title == 'god') {
+    input.title = 'god is ded'
+  }
   return db.post.update({
     data: input,
     where: { id },

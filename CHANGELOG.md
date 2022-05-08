@@ -1,9 +1,16 @@
 # Changelog
 
+## 2022.05.08
+
+- created example articles cell for posts with alias and put on home page
+- adds an example of intercepting the update post service with simple string manipulation
+- creates a deleteAllPosts service
+
 ## 2022.05.07
 
 - launched basic CRUD / sqlite progress to netlify
-- adds content to chapter 2 notes about sqlite not working
+- adds content to chapter 2 notes about sqlite not working live
+- adds content for working with data section
 
 - setup basic post schema
 - ran first dev db migration

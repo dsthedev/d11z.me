@@ -118,7 +118,26 @@ export const QUERY = gql
         <section>
           <h2>Working w/ Data</h2>
           <ul className="alt">
-            <li>Working w/ Data</li>
+            <li>
+              This is where it gets a bit complicated, and Redwood really
+              leverages modern tools to shine
+            </li>
+            <li>
+              Redwood implements GraphQL with Apollo on the client, and Yoga on
+              the server
+            </li>
+            <li>
+              The whole process is <em>designed</em> to be deployed to a
+              serverless stack
+            </li>
+            <li>
+              Services are an extraction above single database tables, and
+              define functions for business logic
+            </li>
+            <li>
+              <code>*.sdl.ts</code> files expose services to GraphQL, allowing
+              fine control over API access
+            </li>
           </ul>
         </section>
 
