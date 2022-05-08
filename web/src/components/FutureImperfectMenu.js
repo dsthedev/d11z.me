@@ -22,10 +22,16 @@ const FutureImperfectMenu = ({ children }) => {
               </NavLink>
             </li>
             <li>
+              <NavLink activeClassName="active" to={routes.posts()}>
+                <h3>Posts</h3>
+                <p>Pointless drivel, probably...</p>
+              </NavLink>
+            </li>
+            <li>
               <NavLink activeClassName="active" to={routes.chapter1()}>
                 <h3>Chapter 1</h3>
                 <p>
-                  Getting <em>familiar</em> with Redwood
+                  Get <em>familiar</em> with Redwood.
                 </p>
               </NavLink>
             </li>
@@ -33,7 +39,7 @@ const FutureImperfectMenu = ({ children }) => {
               <NavLink activeClassName="active" to={routes.chapter2()}>
                 <h3>Chapter 2</h3>
                 <p>
-                  Getting <strong>dynamic</strong> with Redwood
+                  Getting <strong>dynamic</strong> with Redwood!
                 </p>
               </NavLink>
             </li>

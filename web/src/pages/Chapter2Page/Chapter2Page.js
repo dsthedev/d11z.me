@@ -75,7 +75,41 @@ model Post {
         <section>
           <h2>Cells</h2>
           <ul className="alt">
-            <li>Cells</li>
+            <li>
+              Cells make handling loading states, errors, and blank slates much
+              easier, but they do a lot, so{' '}
+              <em>
+                <a href="https://redwoodjs.com/docs/cells">
+                  read the effin docs!
+                </a>
+              </em>
+            </li>
+            <li>
+              Key features:
+              <code>
+                <strong>QUERY</strong>, Loading, Empty, Failure,{' '}
+                <strong>Success</strong>, beforeQuery, afterQuery
+              </code>
+            </li>
+            <li>
+              Cells are meant for fetching data, and are beneficial for async
+              content
+            </li>
+            <li>
+              Use alias to control prop names, improve consistency:
+              <pre>{`
+export const QUERY = gql
+  query ArticlesQuery {
+    articles: posts {
+      id
+    }
+  }
+`}</pre>
+            </li>
+            <li>
+              The full scope of how Redwood works with data should be made more
+              clear in the next section...
+            </li>
           </ul>
         </section>
 
