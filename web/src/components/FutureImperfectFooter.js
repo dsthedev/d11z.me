@@ -6,19 +6,31 @@ const FutureImperfectFooter = ({ children }) => {
       <section id="footer">
         <ul className="icons">
           <li>
-            <a href="#" className="icon solid fa-code">
+            <a
+              href="https://github.com/dsthedev?tab=repositories"
+              className="icon solid fa-code"
+            >
               <span className="label">Github</span>
             </a>
           </li>
           <li>
-            <a href="#" className="icon solid fa-envelope">
+            <a href="mailto://" className="icon solid fa-envelope">
               <span className="label">Email</span>
             </a>
           </li>
+          <li>
+            <code>&copy; d11z</code>
+          </li>
         </ul>
         <p className="copyright">
-          &copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>.
-          Images: <a href="http://unsplash.com">Unsplash</a>.
+          Design:{' '}
+          <a
+            target="_blank"
+            href="http://html5up.net/future-imperfect"
+            rel="noreferrer"
+          >
+            Future Imperfect
+          </a>
         </p>
 
         {children}

@@ -2,6 +2,9 @@
 
 ## 2022.05.07
 
+- improves 404 page a little
+- ?
+
 - created new project with redwoodjs framework
 - added future imperfect template assets
 - gets close menu button working
