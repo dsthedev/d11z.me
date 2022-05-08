@@ -23,7 +23,46 @@ const Chapter2Page = () => {
         <section>
           <h2>Getting Dynamic</h2>
           <ul className="alt">
-            <li>Getting Dynamic</li>
+            <li>
+              Databases and SQL are first-class citizens in Redwood, and it
+              starts with <code>api/db/schema.prisma</code>
+            </li>
+            <li>
+              Example post data structure definition:
+              <pre>{`
+model Post {
+  id        Int      @id @default(autoincrement())
+  title     String
+  body      String
+  createdAt DateTime @default(now())
+}
+`}</pre>
+            </li>
+            <li>Prisma supports string based CUID or UUID for ids</li>
+            <li>
+              Create a snapshot of schema changes and migrate{' '}
+              <code>yarn redwood prisma migrate dev</code>
+            </li>
+            <li>
+              Prisma Studio is a great way to view &amp; manipulate data:{' '}
+              <code>yarn rw prisma studio</code> opens{' '}
+              <code>http://localhost:5555/</code>
+            </li>
+            <li>
+              Redwood has a complete CRUD operation component generator:{' '}
+              <code>yarn rw g scaffold post</code>
+            </li>
+            <li>
+              The scaffold generator does a lot, so make sure to read the{' '}
+              <a
+                href="https://redwoodjs.com/docs/tutorial/chapter2/getting-dynamic#creating-a-post-editor"
+                target="_blank"
+                rel="noreferrer"
+              >
+                docs
+              </a>{' '}
+              and get familiar with the files it creates
+            </li>
           </ul>
         </section>
 
