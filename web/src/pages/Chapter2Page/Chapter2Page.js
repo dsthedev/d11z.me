@@ -27,6 +27,8 @@ const Chapter2Page = () => {
           </ul>
         </section>
 
+        <hr />
+
         <section>
           <h2>Cells</h2>
           <ul className="alt">
@@ -34,12 +36,16 @@ const Chapter2Page = () => {
           </ul>
         </section>
 
+        <hr />
+
         <section>
           <h2>Working w/ Data</h2>
           <ul className="alt">
             <li>Working w/ Data</li>
           </ul>
         </section>
+
+        <hr />
 
         <section>
           <h2>Routing Parameters</h2>

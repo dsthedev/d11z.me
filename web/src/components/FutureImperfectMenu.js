@@ -16,25 +16,25 @@ const FutureImperfectMenu = ({ children }) => {
         <section>
           <ul className="links">
             <li>
-              <NavLink to={routes.about()}>
+              <NavLink activeClassName="active" to={routes.about()}>
                 <h3>About</h3>
                 <p>What is this project all about?</p>
               </NavLink>
             </li>
             <li>
-              <NavLink to={routes.sandbox()}>
+              <NavLink activeClassName="active" to={routes.sandbox()}>
                 <h3>Sandbox</h3>
                 <p>Where all the fun is!</p>
               </NavLink>
             </li>
             <li>
-              <NavLink to={routes.chapter1()}>
+              <NavLink activeClassName="active" to={routes.chapter1()}>
                 <h3>Chapter 1</h3>
                 <p>Getting familiar with Redwood</p>
               </NavLink>
             </li>
             <li>
-              <NavLink to={routes.chapter2()}>
+              <NavLink activeClassName="active" to={routes.chapter2()}>
                 <h3>Chapter 2</h3>
                 <p>Getting dynamic with Redwood</p>
               </NavLink>
@@ -45,7 +45,11 @@ const FutureImperfectMenu = ({ children }) => {
         <section>
           <ul className="actions stacked">
             <li>
-              <NavLink className="button large fit" to={routes.home()}>
+              <NavLink
+                activeClassName="active"
+                className="button large fit"
+                to={routes.home()}
+              >
                 Log In (Home)
               </NavLink>
             </li>

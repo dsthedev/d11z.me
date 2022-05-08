@@ -55,6 +55,8 @@ const Chapter1Page = () => {
           </ul>
         </section>
 
+        <hr />
+
         <section>
           <h2>Installation & Development</h2>
           <ul className="alt">
@@ -69,6 +71,8 @@ const Chapter1Page = () => {
             <li>Use git properly, please...</li>
           </ul>
         </section>
+
+        <hr />
 
         <section>
           <h2>Redwood File Structure</h2>
@@ -92,6 +96,8 @@ const Chapter1Page = () => {
           </ul>
         </section>
 
+        <hr />
+
         <section>
           <h2>Create a Page</h2>
           <ul className="alt">
@@ -112,6 +118,8 @@ const Chapter1Page = () => {
             <li>The routes file can get dynamic too...</li>
           </ul>
         </section>
+
+        <hr />
 
         <section>
           <h2>Another page and Link</h2>
@@ -169,6 +177,8 @@ const Chapter1Page = () => {
           </ul>
         </section>
 
+        <hr />
+
         <section>
           <h2>Layouts</h2>
           <ul className="alt">
@@ -197,6 +207,8 @@ const Chapter1Page = () => {
             </li>
           </ul>
         </section>
+
+        <hr />
 
         <section>
           <ul className="actions">

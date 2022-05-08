@@ -2,6 +2,10 @@
 
 ## 2022.05.07
 
+- prepared for netlify
+- tested live deploy: success!
+- added active menu/header navlink styles
+
 - improves 404 page a little
 - adds chapter1 page & notes
 - adds chapter2 page & notes
