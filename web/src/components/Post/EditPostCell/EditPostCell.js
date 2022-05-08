@@ -9,6 +9,7 @@ export const QUERY = gql`
     post: post(id: $id) {
       id
       title
+      slug
       body
       createdAt
       updatedAt

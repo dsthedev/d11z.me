@@ -5,6 +5,7 @@
 - created example articles cell for posts with alias and put on home page
 - adds an example of intercepting the update post service with simple string manipulation
 - creates a deleteAllPosts service
+- hackily adds a slug column to post table
 
 ## 2022.05.07
 

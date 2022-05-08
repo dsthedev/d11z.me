@@ -40,11 +40,7 @@ const PostForm = (props) => {
 
         <FieldError name="title" className="field-error" />
 
-        <Label
-          name="body"
-          className="label"
-          errorClassName="label label-error"
-        >
+        <Label name="body" className="label" errorClassName="label label-error">
           Body
         </Label>
 

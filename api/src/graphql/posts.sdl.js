@@ -2,6 +2,7 @@ export const schema = gql`
   type Post {
     id: Int!
     title: String!
+    slug: String!
     body: String!
     createdAt: DateTime!
     updatedAt: DateTime!
@@ -14,11 +15,13 @@ export const schema = gql`
 
   input CreatePostInput {
     title: String!
+    slug: String
     body: String!
   }
 
   input UpdatePostInput {
     title: String
+    slug: String
     body: String
   }
 

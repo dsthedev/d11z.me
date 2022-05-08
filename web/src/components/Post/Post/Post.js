@@ -66,9 +66,7 @@ const Post = ({ post }) => {
     <>
       <div className="segment">
         <header className="segment-header">
-          <h2 className="heading heading-secondary">
-            Post {post.id} Detail
-          </h2>
+          <h2 className="heading heading-secondary">Post {post.id} Detail</h2>
         </header>
         <table className="table">
           <tbody>
@@ -79,6 +77,10 @@ const Post = ({ post }) => {
             <tr>
               <th>Title</th>
               <td>{post.title}</td>
+            </tr>
+            <tr>
+              <th>Slug</th>
+              <td>{post.slug}</td>
             </tr>
             <tr>
               <th>Body</th>
