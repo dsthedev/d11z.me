@@ -201,8 +201,8 @@ const Chapter1Page = () => {
         <section>
           <ul className="actions">
             <li>
-              <Link to={routes.chapter1()} className="button large">
-                Chapter 2...
+              <Link to={routes.chapter2()} className="button large">
+                Chapter 2
               </Link>
             </li>
           </ul>

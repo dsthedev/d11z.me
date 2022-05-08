@@ -17,7 +17,10 @@ const FutureImperfectHeader = ({ children }) => {
               <NavLink to={routes.sandbox()}>Sandbox</NavLink>
             </li>
             <li>
-              <NavLink to={routes.chapter1()}>Chapter 1</NavLink>
+              <NavLink to={routes.chapter1()}>Ch: 1</NavLink>
+            </li>
+            <li>
+              <NavLink to={routes.chapter2()}>Ch: 2</NavLink>
             </li>
           </ul>
         </nav>

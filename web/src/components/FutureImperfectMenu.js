@@ -28,9 +28,15 @@ const FutureImperfectMenu = ({ children }) => {
               </NavLink>
             </li>
             <li>
-              <NavLink to={routes.sandbox()}>
+              <NavLink to={routes.chapter1()}>
                 <h3>Chapter 1</h3>
                 <p>Getting familiar with Redwood</p>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={routes.chapter2()}>
+                <h3>Chapter 2</h3>
+                <p>Getting dynamic with Redwood</p>
               </NavLink>
             </li>
           </ul>

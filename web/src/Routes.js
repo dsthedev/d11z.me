@@ -18,6 +18,7 @@ const Routes = () => {
         <Route path="/about" page={AboutPage} name="about" />
         <Route path="/sandbox" page={SandboxPage} name="sandbox" />
         <Route path="/chapter1" page={Chapter1Page} name="chapter1" />
+        <Route path="/chapter2" page={Chapter2Page} name="chapter2" />
       </Set>
 
       <Set wrap={FutureImperfectHomeLayout}>
