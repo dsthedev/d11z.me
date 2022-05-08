@@ -16,11 +16,6 @@ const FutureImperfectHeader = ({ children }) => {
               </NavLink>
             </li>
             <li>
-              <NavLink activeClassName="active" to={routes.sandbox()}>
-                Sandbox
-              </NavLink>
-            </li>
-            <li>
               <NavLink activeClassName="active" to={routes.chapter1()}>
                 Ch: 1
               </NavLink>
