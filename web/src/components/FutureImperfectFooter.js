@@ -7,15 +7,15 @@ const FutureImperfectFooter = ({ children }) => {
         <ul className="icons">
           <li>
             <a
-              href="https://github.com/dsthedev?tab=repositories"
+              href="https://github.com/dsthedev/d11z.me"
               className="icon solid fa-code"
             >
-              <span className="label">Github</span>
+              <span className="label">Source Code</span>
             </a>
           </li>
           <li>
             <a href="mailto://" className="icon solid fa-envelope">
-              <span className="label">Email</span>
+              <span className="label">Contact Developer</span>
             </a>
           </li>
           <li>

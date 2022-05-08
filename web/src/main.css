@@ -3771,3 +3771,11 @@ body.single #footer {
   height: 1px;
   overflow: hidden;
 }
+
+#header .links .active {
+  font-weight: bold;
+}
+#menu .links>li .active {
+  border-left: solid 2px #646464;
+  padding-left: 1em;
+}

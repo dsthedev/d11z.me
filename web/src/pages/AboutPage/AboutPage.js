@@ -1,16 +1,25 @@
 import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 
+let redwoodDiscordSplash =
+  'https://cdn.discordapp.com/splashes/679514959968993311/afdfd652313475842599626504d98ef4.jpg?size=1024'
+
 const AboutPage = () => {
   return (
     <>
-      <MetaTags title="About" description="About page" />
+      <MetaTags
+        title="About d11z.me"
+        description="All about d11z.me, a sandbox webapp for experimenting with the RedwoodJS framework."
+      />
 
       <article className="post">
         <header>
           <div className="title">
             <h1>About d11z.me</h1>
-            <p>What is this project all about?</p>
+            <p>
+              All about d11z.me, a sandbox webapp for experimenting with the
+              RedwoodJS framework.
+            </p>
           </div>
         </header>
 
@@ -54,6 +63,10 @@ const AboutPage = () => {
             </Link>
           </li>
         </ul>
+
+        <span className="image featured">
+          <img src={redwoodDiscordSplash} alt="RedwoodJS Splash Logo" />
+        </span>
       </article>
     </>
   )
