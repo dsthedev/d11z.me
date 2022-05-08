@@ -22,16 +22,9 @@ const SandboxPage = () => {
 
         <h2>Todo:</h2>
 
-        <ol className="">
-          <li>follow the tutorial</li>
-          <li>apply to this project</li>
-          <li>?</li>
-          <li>profit</li>
-        </ol>
-
-        <div className="box">
-          <code>[put test code here]</code>
-        </div>
+        <ul className="alt">
+          <li>build a blog engine</li>
+        </ul>
       </article>
     </>
   )

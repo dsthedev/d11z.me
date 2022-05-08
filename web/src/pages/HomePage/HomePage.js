@@ -10,37 +10,30 @@ const HomePage = () => {
       />
 
       <article className="post">
-        <header>
-          <div className="title">
-            <h2>
-              <Link to={routes.about()}>What is d11z.me?</Link>
-            </h2>
-            <ul className="actions">
-              <li>
-                <Link to={routes.about()} className="button large">
-                  Read About Project
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </header>
-        <header>
-          <div className="title">
-            <h2>
+        <h1>Sitemap</h1>
+        <ul className="alt">
+          <li>
+            <strong>
+              <Link to={routes.about()}>About</Link>
+            </strong>
+            {': '}
+            What is this project all about?
+          </li>
+          <li>
+            <strong>
               <Link to={routes.sandbox()}>Sandbox</Link>
-            </h2>
-            <ul className="actions">
-              <li>
-                <Link to={routes.sandbox()} className="button large">
-                  Get to Work!
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </header>
-        <footer>
-          <p>Nothing else to see here...</p>
-        </footer>
+            </strong>
+            {': '}
+            Where all the fun is!
+          </li>
+          <li>
+            <strong>
+              <Link to={routes.chapter1()}>Chapter 1</Link>
+            </strong>
+            {': '}
+            Getting familiar with Redwood
+          </li>
+        </ul>
       </article>
     </>
   )

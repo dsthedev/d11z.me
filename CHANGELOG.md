@@ -3,7 +3,7 @@
 ## 2022.05.07
 
 - improves 404 page a little
-- ?
+- adds chapter1 notes page
 
 - created new project with redwoodjs framework
 - added future imperfect template assets

@@ -14,13 +14,16 @@ import FutureImperfectSingleLayout from './layouts/FutureImperfectSingleLayout/F
 const Routes = () => {
   return (
     <Router>
-      <Set wrap={FutureImperfectHomeLayout}>
-        <Route path="/" page={HomePage} name="home" />
-      </Set>
       <Set wrap={FutureImperfectSingleLayout}>
         <Route path="/about" page={AboutPage} name="about" />
         <Route path="/sandbox" page={SandboxPage} name="sandbox" />
+        <Route path="/chapter1" page={Chapter1Page} name="chapter1" />
       </Set>
+
+      <Set wrap={FutureImperfectHomeLayout}>
+        <Route path="/" page={HomePage} name="home" />
+      </Set>
+
       <Route notfound page={NotFoundPage} />
     </Router>
   )
