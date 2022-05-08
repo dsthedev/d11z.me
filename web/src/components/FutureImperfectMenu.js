@@ -28,6 +28,12 @@ const FutureImperfectMenu = ({ children }) => {
               </NavLink>
             </li>
             <li>
+              <NavLink activeClassName="active" to={routes.rates()}>
+                <h3>Rates</h3>
+                <p>Exploring Rate data modeling</p>
+              </NavLink>
+            </li>
+            <li>
               <NavLink activeClassName="active" to={routes.chapter1()}>
                 <h3>Chapter 1</h3>
                 <p>

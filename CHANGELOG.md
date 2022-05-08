@@ -6,6 +6,8 @@
 - adds an example of intercepting the update post service with simple string manipulation
 - creates a deleteAllPosts service
 - hackily adds a slug column to post table
+- adds Rate Model + CRUD with improved data set
+- Gets sample list cell working on sandbox for price sheet
 
 ## 2022.05.07
 

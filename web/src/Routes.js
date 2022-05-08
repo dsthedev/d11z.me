@@ -8,6 +8,7 @@
 // 'src/pages/Admin/BooksPage/BooksPage.js' -> AdminBooksPage
 
 import { Router, Route, Set } from '@redwoodjs/router'
+import RatesLayout from 'src/layouts/RatesLayout'
 import PostsLayout from 'src/layouts/PostsLayout'
 import FutureImperfectHomeLayout from './layouts/FutureImperfectHomeLayout/FutureImperfectHomeLayout'
 import FutureImperfectSingleLayout from './layouts/FutureImperfectSingleLayout/FutureImperfectSingleLayout'
@@ -15,6 +16,12 @@ import FutureImperfectSingleLayout from './layouts/FutureImperfectSingleLayout/F
 const Routes = () => {
   return (
     <Router>
+      <Set wrap={RatesLayout}>
+        <Route path="/rates/new" page={RateNewRatePage} name="newRate" />
+        <Route path="/rates/{id:Int}/edit" page={RateEditRatePage} name="editRate" />
+        <Route path="/rates/{id:Int}" page={RateRatePage} name="rate" />
+        <Route path="/rates" page={RateRatesPage} name="rates" />
+      </Set>
       <Set wrap={PostsLayout}>
         <Route path="/posts/new" page={PostNewPostPage} name="newPost" />
         <Route path="/posts/{id:Int}/edit" page={PostEditPostPage} name="editPost" />

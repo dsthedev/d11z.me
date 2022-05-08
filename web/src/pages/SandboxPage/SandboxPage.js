@@ -1,5 +1,4 @@
-import { MetaTags, useMutation } from '@redwoodjs/web'
-import ArticlesCell from 'src/components/ArticlesCell/ArticlesCell'
+import { MetaTags } from '@redwoodjs/web'
 
 const SandboxPage = () => {
   return (
@@ -19,10 +18,6 @@ const SandboxPage = () => {
             </p>
           </div>
         </header>
-
-        <h2>Recent Articles</h2>
-
-        <ArticlesCell />
       </article>
     </>
   )
