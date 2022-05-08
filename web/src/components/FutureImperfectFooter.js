@@ -7,8 +7,10 @@ const FutureImperfectFooter = ({ children }) => {
         <ul className="icons">
           <li>
             <a
-              href="https://github.com/dsthedev/d11z.me"
               className="icon solid fa-code"
+              href="https://github.com/dsthedev/d11z.me"
+              target="_blank"
+              rel="noreferrer"
             >
               <span className="label">Source Code</span>
             </a>
