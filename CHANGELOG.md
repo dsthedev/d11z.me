@@ -2,6 +2,9 @@
 
 ## 2022.05.07
 
+- launched basic CRUD / sqlite progress to netlify
+- adds content to chapter 2 notes about sqlite not working
+
 - setup basic post schema
 - ran first dev db migration
 - tested prisma and added updateat to posts

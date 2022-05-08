@@ -10,31 +10,47 @@ const HomePage = () => {
       />
 
       <article className="post">
-        <h1>Sitemap</h1>
-        <ul className="alt">
+        <header>
+          <div className="title">
+            <h1>Latest Progress</h1>
+            <ul className="alt">
+              <li>
+                <strong>
+                  <Link to={routes.chapter2()}>Chapter 2</Link>
+                </strong>
+                {' | '}
+                Started getting dynamic with Redwood!
+              </li>
+            </ul>
+          </div>
+          <div className="meta">
+            <time className="published" dateTime="2022-05-07">
+              May 7, 2022
+            </time>
+          </div>
+        </header>
+        <p>
+          Up Next:{' '}
+          <strong>
+            <a href={routes.chapter2()}>Cells</a>
+          </strong>
+        </p>
+      </article>
+
+      <section className="post">
+        <h2>Thoughts &amp; Ideas</h2>
+        <ul>
           <li>
-            <strong>
-              <Link to={routes.about()}>About</Link>
-            </strong>
-            {': '}
-            What is this project all about?
+            Can blog posts be cached to json files for most recent, single, etc
+            to reduce db dependency?
           </li>
           <li>
-            <strong>
-              <Link to={routes.sandbox()}>Sandbox</Link>
-            </strong>
-            {': '}
-            Where all the fun is!
-          </li>
-          <li>
-            <strong>
-              <Link to={routes.chapter1()}>Chapter 1</Link>
-            </strong>
-            {': '}
-            Getting familiar with Redwood
+            It's becoming a little tedious to hand-write all the html on this
+            site, need to find a better way to store and edit page content,
+            maybe <code>marked</code>?
           </li>
         </ul>
-      </article>
+      </section>
     </>
   )
 }

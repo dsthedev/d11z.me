@@ -28,13 +28,13 @@ const Chapter2Page = () => {
               starts with <code>api/db/schema.prisma</code>
             </li>
             <li>
-              Example post data structure definition:
               <pre>{`
 model Post {
   id        Int      @id @default(autoincrement())
   title     String
   body      String
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt()
 }
 `}</pre>
             </li>
@@ -64,6 +64,10 @@ model Post {
               and get familiar with the files it creates
             </li>
           </ul>
+          <blockquote>
+            <strong>Notice</strong>: sqlite databases will not work on live
+            hosting such as Netlify, a full database will need to be connected.
+          </blockquote>
         </section>
 
         <hr />
