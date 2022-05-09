@@ -9,6 +9,7 @@ function DefaultColumnFilter({
   column: { filterValue, preFilteredRows, setFilter },
 }) {
   const count = preFilteredRows.length
+  const label = preFilteredRows.value
 
   return (
     <input
@@ -16,7 +17,7 @@ function DefaultColumnFilter({
       onChange={(e) => {
         setFilter(e.target.value || undefined) // Set undefined to remove the filter entirely
       }}
-      placeholder={`Search ${count} records...`}
+      placeholder={`Filter`}
     />
   )
 }
@@ -98,7 +99,7 @@ function Table({ columns, data }) {
     nextPage,
     previousPage,
     setPageSize,
-    state: { pageIndex, pageSize },
+    state: { pageIndex, pageSize = 20 },
   } = useTable(
     {
       columns,
@@ -121,7 +122,6 @@ function Table({ columns, data }) {
           border={1}
           style={{
             borderCollapse: 'collapse',
-            width: '100%',
             margin: 'auto',
           }}
           className="table condensed"
@@ -199,7 +199,6 @@ function Table({ columns, data }) {
               const page = e.target.value ? Number(e.target.value) - 1 : 0
               gotoPage(page)
             }}
-            style={{ width: '100px' }}
           />
         </span>{' '}
         <select
@@ -208,7 +207,7 @@ function Table({ columns, data }) {
             setPageSize(Number(e.target.value))
           }}
         >
-          {[5, 10, 20, 30, 40, 50].map((pageSize) => (
+          {[10, 50, 100].map((pageSize) => (
             <option key={pageSize} value={pageSize}>
               Show {pageSize}
             </option>
@@ -237,15 +236,7 @@ function PriceSheet({ prices }) {
         hideHeader: false,
         Footer: '',
         accessor: 'value',
-        Cell: ({ value }) => displayAsMoney(value),
-      },
-      {
-        id: 'unitHead',
-        Header: 'Unit',
-        hideHeader: false,
-        Footer: '',
-        accessor: 'unit',
-        filter: 'includes',
+        Cell: ({ value }) => <strong>{displayAsMoney(value)}</strong>,
       },
       {
         id: 'typeHead',
@@ -265,10 +256,18 @@ function PriceSheet({ prices }) {
       },
       {
         id: 'modifiersHead',
-        Header: 'Modifiers',
+        Header: 'Options',
         hideHeader: false,
         Footer: '',
         accessor: 'modifiers',
+      },
+      {
+        id: 'unitHead',
+        Header: 'Unit',
+        hideHeader: false,
+        Footer: '',
+        accessor: 'unit',
+        filter: 'includes',
       },
       // {
       //   id: 'editBtn',

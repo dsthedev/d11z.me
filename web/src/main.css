@@ -3203,15 +3203,21 @@ table tbody tr:nth-child(2n + 1) {
 }
 
 table td {
-  padding: 0.75em 0.75em;
+  /* padding: 0.75em 0.75em; */
+  padding: 0.1em 0.1em;
+  width: auto;
 }
 
 table th {
   color: #3c3b3b;
   font-size: 0.9em;
   font-weight: 700;
-  padding: 0 0.75em 0.75em 0.75em;
+  padding: 0 0.75em 0.75em 0em;
   text-align: left;
+}
+
+table th input {
+  max-width: 8rem;
 }
 
 table thead {

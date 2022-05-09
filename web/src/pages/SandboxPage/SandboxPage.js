@@ -9,7 +9,7 @@ const SandboxPage = () => {
       type: 'Install',
       material: 'All Lock',
       modifiers: '',
-      unit: 'Square Feet',
+      unit: 'Square Feet (sqft)',
       description: '',
     },
     {
@@ -18,7 +18,7 @@ const SandboxPage = () => {
       type: 'Install',
       material: 'Carpet',
       modifiers: '',
-      unit: 'Square Yard',
+      unit: 'Square Yard (sqyd)',
       description: '',
     },
     {
@@ -27,7 +27,7 @@ const SandboxPage = () => {
       type: 'Install',
       material: 'Carpet',
       modifiers: 'Pattern',
-      unit: 'Square Yard',
+      unit: 'Square Yard (sqyd)',
       description: '',
     },
     {
@@ -36,7 +36,7 @@ const SandboxPage = () => {
       type: 'Install',
       material: 'Carpet',
       modifiers: 'Softback, Pattern',
-      unit: 'Square Yard',
+      unit: 'Square Yard (sqyd)',
       description: '',
     },
     {
@@ -45,7 +45,7 @@ const SandboxPage = () => {
       type: 'Install',
       material: 'Carpet',
       modifiers: 'Softback',
-      unit: 'Square Yard',
+      unit: 'Square Yard (sqyd)',
       description: '',
     },
     {
@@ -63,7 +63,7 @@ const SandboxPage = () => {
       type: 'Install',
       material: 'Carpet',
       modifiers: 'Tiles',
-      unit: 'Square Yard',
+      unit: 'Square Yard (sqyd)',
       description: '',
     },
     {
@@ -72,7 +72,7 @@ const SandboxPage = () => {
       type: 'Install',
       material: 'Ceramic',
       modifiers: 'Backsplash',
-      unit: 'Square Feet',
+      unit: 'Square Feet (sqft)',
       description: '',
     },
     {
@@ -81,7 +81,7 @@ const SandboxPage = () => {
       type: 'Install',
       material: 'LVT/P',
       modifiers: '',
-      unit: 'Square Feet',
+      unit: 'Square Feet (sqft)',
       description: '',
     },
     {
@@ -117,7 +117,7 @@ const SandboxPage = () => {
       type: 'Remove',
       material: 'Carpet',
       modifiers: '',
-      unit: 'Square Yard',
+      unit: 'Square Yard (sqyd)',
       description: '',
     },
     {
@@ -126,7 +126,7 @@ const SandboxPage = () => {
       type: 'Remove',
       material: 'Vinyl',
       modifiers: '',
-      unit: 'Square Yard',
+      unit: 'Square Yard (sqyd)',
       description: '',
     },
     {
@@ -135,7 +135,7 @@ const SandboxPage = () => {
       type: 'Remove',
       material: 'Tile',
       modifiers: '',
-      unit: 'Square Feet',
+      unit: 'Square Feet (sqft)',
       description: '',
     },
     {
@@ -180,7 +180,7 @@ const SandboxPage = () => {
       type: 'Install',
       material: 'Cove Base',
       modifiers: '',
-      unit: 'Linear Feet',
+      unit: 'Linear Feet (lnft)',
       description: '',
     },
     {
@@ -189,7 +189,7 @@ const SandboxPage = () => {
       type: 'Remove',
       material: 'Cove Base',
       modifiers: '',
-      unit: 'Linear Feet',
+      unit: 'Linear Feet (lnft)',
       description: '',
     },
     {
@@ -198,7 +198,7 @@ const SandboxPage = () => {
       type: 'Install',
       material: 'Vinyl',
       modifiers: 'Sheet Goods',
-      unit: 'Square Yard',
+      unit: 'Square Yard (sqyd)',
       description: '',
     },
     {
@@ -207,7 +207,7 @@ const SandboxPage = () => {
       type: 'Install',
       material: 'Trim Base',
       modifiers: '',
-      unit: 'Linear Feet',
+      unit: 'Linear Feet (lnft)',
       description: '',
     },
     {
@@ -216,7 +216,7 @@ const SandboxPage = () => {
       type: 'Remove',
       material: 'Trim Base',
       modifiers: '',
-      unit: 'Linear Feet',
+      unit: 'Linear Feet (lnft)',
       description: '',
     },
     {
@@ -225,7 +225,7 @@ const SandboxPage = () => {
       type: 'Install',
       material: 'Shoe Base',
       modifiers: '',
-      unit: 'Linear Feet',
+      unit: 'Linear Feet (lnft)',
       description: '',
     },
     {
@@ -234,7 +234,7 @@ const SandboxPage = () => {
       type: 'Remove',
       material: 'Shoe Base',
       modifiers: '',
-      unit: 'Linear Feet',
+      unit: 'Linear Feet (lnft)',
       description: '',
     },
     {
@@ -252,7 +252,7 @@ const SandboxPage = () => {
       type: 'Reset',
       material: 'Trim Base',
       modifiers: '',
-      unit: 'Linear Feet',
+      unit: 'Linear Feet (lnft)',
       description: '',
     },
     {
@@ -279,7 +279,7 @@ const SandboxPage = () => {
       type: 'Install',
       material: 'Ceramic',
       modifiers: '',
-      unit: 'Square Feet',
+      unit: 'Square Feet (sqft)',
       description: '',
     },
     {
