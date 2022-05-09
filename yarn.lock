@@ -19851,6 +19851,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-table@npm:^7.7.0":
+  version: 7.7.0
+  resolution: "react-table@npm:7.7.0"
+  peerDependencies:
+    react: ^16.8.3 || ^17.0.0-0
+  checksum: d6f2959ef9c205303e5f1c6594fcd4e2c6246c6f97fdec6ddcc6ae1cf4c7d18389947ccf21e64538fc65046b648e8effa12da5659b4ef22d55dae31d13720a59
+  languageName: node
+  linkType: hard
+
 "react-textarea-autosize@npm:^8.3.0":
   version: 8.3.3
   resolution: "react-textarea-autosize@npm:8.3.3"
@@ -23576,6 +23585,7 @@ __metadata:
     prop-types: 15.8.1
     react: 17.0.2
     react-dom: 17.0.2
+    react-table: ^7.7.0
   languageName: unknown
   linkType: soft
 
