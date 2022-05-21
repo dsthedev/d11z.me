@@ -8,28 +8,45 @@ generator client {
   binaryTargets = "native"
 }
 
-model Post {
-  id        Int      @id @default(autoincrement())
-  title     String
-  slug      String?  @default("")
-  body      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt()
-}
-
-model Rate {
+model User {
   id Int @id @default(autoincrement())
 
-  value    Float
-  currency String @default("USD")
+  email               String    @unique
+  hashedPassword      String    @default("")
+  salt                String    @default("")
+  resetToken          String?
+  resetTokenExpiresAt DateTime?
 
-  name        String?
-  type        String
-  material    String
-  modifiers   String?
-  unit        String
-  description String?
+  name  String? @default("")
+  roles String  @default("guest")
 
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt()
+  updatedAt DateTime @updatedAt
+
 }
+
+// model Post {
+//   id        Int      @id @default(autoincrement())
+//   title     String
+//   slug      String?  @default("")
+//   body      String
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt()
+// }
+
+// model Rate {
+//   id Int @id @default(autoincrement())
+
+//   value    Float
+//   currency String @default("USD")
+
+//   name        String?
+//   type        String
+//   material    String
+//   modifiers   String?
+//   unit        String
+//   description String?
+
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt()
+// }

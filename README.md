@@ -1,6 +1,6 @@
 # d11z.me
 
-A website for me, d11z, with an imperfect future.
+"Less than everything, more than nothing..."
 
 ```
 yarn install
