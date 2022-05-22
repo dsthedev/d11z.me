@@ -18,6 +18,7 @@ CREATE TABLE "User" (
 -- CreateTable
 CREATE TABLE "Post" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "wpId" INTEGER,
     "authorId" INTEGER DEFAULT 1,
     "parentId" INTEGER DEFAULT 0,
     "postType" TEXT NOT NULL DEFAULT 'post',

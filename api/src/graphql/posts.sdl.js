@@ -1,6 +1,7 @@
 export const schema = gql`
   type Post {
     id: Int!
+    wpId: Int
     User: User
     authorId: Int
     parentId: Int
@@ -17,10 +18,11 @@ export const schema = gql`
   type Query {
     posts: [Post!]! @requireAuth
     postPosts: [Post!]! @skipAuth
-    post(id: Int!): Post @skipAuth
+    post(id: Int!): Post @requireAuth
   }
 
   input CreatePostInput {
+    wpId: Int
     authorId: Int
     parentId: Int
     postType: String!
@@ -32,6 +34,7 @@ export const schema = gql`
   }
 
   input UpdatePostInput {
+    wpId: Int
     authorId: Int
     parentId: Int
     postType: String

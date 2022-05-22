@@ -72,30 +72,36 @@ export default async () => {
       const data = []
 
       for (let i = 0; i < sourceData[0].wp_category.length; i++) {
-        data.push({
-          id: parseInt(sourceData[0].wp_category[i].wp_term_id[0]),
-          name: sourceData[0].wp_category[i].wp_cat_name[0],
-          slug: sourceData[0].wp_category[i].wp_category_nicename[0],
-          type: 'category',
-        })
+        if (i <= 4) {
+          data.push({
+            id: parseInt(sourceData[0].wp_category[i].wp_term_id[0]),
+            name: sourceData[0].wp_category[i].wp_cat_name[0],
+            slug: sourceData[0].wp_category[i].wp_category_nicename[0],
+            type: 'category',
+          })
+        }
       }
 
       for (let i = 0; i < sourceData[0].wp_tag.length; i++) {
-        data.push({
-          id: parseInt(sourceData[0].wp_tag[i].wp_term_id[0]),
-          name: sourceData[0].wp_tag[i].wp_tag_name[0],
-          slug: sourceData[0].wp_tag[i].wp_tag_slug[0],
-          type: 'tag',
-        })
+        if (i <= 4) {
+          data.push({
+            id: parseInt(sourceData[0].wp_tag[i].wp_term_id[0]),
+            name: sourceData[0].wp_tag[i].wp_tag_name[0],
+            slug: sourceData[0].wp_tag[i].wp_tag_slug[0],
+            type: 'tag',
+          })
+        }
       }
 
       for (let i = 0; i < sourceData[0].wp_term.length; i++) {
-        data.push({
-          id: parseInt(sourceData[0].wp_term[i].wp_term_id[0]),
-          name: sourceData[0].wp_term[i].wp_term_name[0],
-          slug: sourceData[0].wp_term[i].wp_term_slug[0],
-          type: 'term',
-        })
+        if (i <= 4) {
+          data.push({
+            id: parseInt(sourceData[0].wp_term[i].wp_term_id[0]),
+            name: sourceData[0].wp_term[i].wp_term_name[0],
+            slug: sourceData[0].wp_term[i].wp_term_slug[0],
+            type: 'term',
+          })
+        }
       }
 
       Promise.all(
@@ -118,23 +124,25 @@ export default async () => {
       const source = sourceData[0]['item']
       const data = []
 
-      for (let i = 0; i < source.length; i++) {
-        data.push({
-          id: parseInt(source[i].wp_post_id[0]),
-          title: source[i].title[0],
-          pStatus: source[i].wp_status[0],
-          parentId: parseInt(source[i].wp_post_parent[0]),
-          slug: source[i].title[0]
-            .replace(/\W+(?!$)/g, '-')
-            .replace(/\W$/, '')
-            .toLowerCase(),
-          postType: source[i].wp_post_type[0],
-          body: source[i].content_encoded[0]
-            ? source[i].content_encoded[0]
-            : '',
-          // createdAt: source[i].wp_post_date[0],
-          // updatedAt: source[i].wp_post_modified[0],
-        })
+      for (let i = 333; i < source.length; i++) {
+        if (i <= 358) {
+          data.push({
+            wpId: parseInt(source[i].wp_post_id[0]),
+            title: source[i].title[0],
+            pStatus: source[i].wp_status[0],
+            parentId: parseInt(source[i].wp_post_parent[0]),
+            slug: source[i].title[0]
+              .replace(/\W+(?!$)/g, '-')
+              .replace(/\W$/, '')
+              .toLowerCase(),
+            postType: source[i].wp_post_type[0],
+            body: source[i].content_encoded[0]
+              ? source[i].content_encoded[0]
+              : '',
+            // createdAt: source[i].wp_post_date[0],
+            // updatedAt: source[i].wp_post_modified[0],
+          })
+        }
       }
       Promise.all(
         data.map(async (data) => {
