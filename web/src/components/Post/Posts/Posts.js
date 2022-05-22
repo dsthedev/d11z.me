@@ -10,6 +10,8 @@ const DELETE_POST_MUTATION = gql`
   mutation DeletePostMutation($id: Int!) {
     deletePost(id: $id) {
       id
+      title
+      slug
     }
   }
 `

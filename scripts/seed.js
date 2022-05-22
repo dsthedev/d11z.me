@@ -1,7 +1,5 @@
 import { db } from 'api/src/lib/db'
 import CryptoJS from 'crypto-js'
-import md5 from 'md5'
-import { v4 as uuidv4 } from 'uuid'
 
 // All import functions are controlled at end!
 export default async () => {
@@ -112,50 +110,28 @@ export default async () => {
     }
   }
 
-  const importPages = () => {
-    try {
-      const source = require('./data/ds-pages.json')
-      const data = []
-
-      for (let i = 0; i < source.length; i++) {
-        data.push({
-          title: source[i].title.__cdata,
-          slug: source[i].title.__cdata
-            .replace(/\W+(?!$)/g, '-')
-            .replace(/\W$/, '')
-            .toLowerCase(),
-          postType: source[i].post_type.__cdata,
-          body: source[i].encoded[0].__cdata,
-        })
-      }
-      Promise.all(
-        data.map(async (data) => {
-          const record = await db.post.create({ data })
-          console.log('Importing: ==== ' + record.title + ' ===')
-        })
-      )
-    } catch (error) {
-      console.warn('Please define your page import data.')
-      console.error(error)
-    }
-  }
-
   const importPosts = () => {
     try {
-      const source = require('./data/ds-posts.json')
+      db.post.deleteMany()
+
+      const sourceData = require('./data/ds-everything.json')
+      const source = sourceData[0]['item']
       const data = []
 
       for (let i = 0; i < source.length; i++) {
         data.push({
-          title: source[i].title.__cdata,
-          slug: source[i].title.__cdata
+          id: parseInt(source[i].wp_post_id[0]),
+          title: source[i].title[0],
+          slug: source[i].title[0]
             .replace(/\W+(?!$)/g, '-')
             .replace(/\W$/, '')
             .toLowerCase(),
-          postType: source[i].post_type.__cdata,
-          body: source[i].encoded[0].__cdata
-            ? source[i].encoded[0].__cdata
+          postType: source[i].wp_post_type[0],
+          body: source[i].content_encoded[0]
+            ? source[i].content_encoded[0]
             : '',
+          // createdAt: source[i].wp_post_date[0],
+          // updatedAt: source[i].wp_post_modified[0],
         })
       }
       Promise.all(
@@ -166,34 +142,6 @@ export default async () => {
       )
     } catch (error) {
       console.warn('Please define your post import data.')
-      console.error(error)
-    }
-  }
-
-  const importPortfolio = () => {
-    try {
-      const source = require('./data/ds-portfolio.json')
-      const data = []
-
-      for (let i = 0; i < source.length; i++) {
-        data.push({
-          title: source[i].title.__cdata,
-          slug: source[i].title.__cdata
-            .replace(/\W+(?!$)/g, '-')
-            .replace(/\W$/, '')
-            .toLowerCase(),
-          postType: source[i].post_type.__cdata,
-          body: source[i].encoded[0].__cdata,
-        })
-      }
-      Promise.all(
-        data.map(async (data) => {
-          const record = await db.post.create({ data })
-          console.log('Importing: ==== ' + record.title + ' ===')
-        })
-      )
-    } catch (error) {
-      console.warn('Please define your portfolio import data.')
       console.error(error)
     }
   }
@@ -214,11 +162,8 @@ export default async () => {
   // }
 
   importUsers()
+  importPosts()
   importTaxonomies()
-
-  // importPages()
-  // importPosts()
-  // importPortfolio()
 
   // importRates()
 }

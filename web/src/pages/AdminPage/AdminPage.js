@@ -41,7 +41,7 @@ const AdminPage = () => {
         </header>
 
         <section>
-          <ProfileCell id={currentUser.id} />
+          <ProfileCell id={currentUser?.id ? currentUser.id : false} />
         </section>
       </main>
     </>

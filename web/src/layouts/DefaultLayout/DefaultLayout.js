@@ -80,11 +80,11 @@ const DefaultLayout = ({ children }) => {
               {isAuthenticated ? (
                 <li className={navLiClasses + 'pr-4 text-stone-700'}>
                   <code className="p-1 text-xs bg-slate-600 text-stone-200">
-                    {currentUser.firstName}
+                    {currentUser?.firstName ? currentUser.firstName : '?'}
                   </code>
                   :
                   <code className="p-1 text-xs bg-sky-600 text-stone-200">
-                    [{currentUser.roles}]
+                    {currentUser?.roles ? currentUser.roles : '?'}
                   </code>
                 </li>
               ) : (
