@@ -19,20 +19,27 @@ model User {
 
   name  String? @default("")
   roles String  @default("guest")
+  posts Post[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
 }
 
-// model Post {
-//   id        Int      @id @default(autoincrement())
-//   title     String
-//   slug      String?  @default("")
-//   body      String
-//   createdAt DateTime @default(now())
-//   updatedAt DateTime @updatedAt()
-// }
+model Post {
+  id Int @id @default(autoincrement())
+
+  User     User?   @relation(fields: [authorId], references: [id])
+  authorId Int?    @default(1)
+  postType String  @default("post")
+  isSticky Boolean @default(false)
+
+  title String
+  slug  String? @default("")
+  body  String? @default("")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt()
+}
 
 // model Rate {
 //   id Int @id @default(autoincrement())

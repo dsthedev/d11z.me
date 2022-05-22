@@ -40,8 +40,8 @@ const UserForm = (props) => {
         <TextField
           name="email"
           defaultValue={props.user?.email}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
+          className="p-1 mb-2 border-2 border-zinc-300"
+          errorClassName="p-1 mb-2 border-2 border-zinc-300 p-1 mb-2 border-2 border-zinc-300-error"
           validation={{ required: true }}
         />
 
@@ -58,8 +58,8 @@ const UserForm = (props) => {
         <TextField
           name="hashedPassword"
           defaultValue={props.user?.hashedPassword}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
+          className="p-1 mb-2 border-2 border-zinc-300"
+          errorClassName="p-1 mb-2 border-2 border-zinc-300 p-1 mb-2 border-2 border-zinc-300-error"
           validation={{ required: true }}
         />
 
@@ -76,8 +76,8 @@ const UserForm = (props) => {
         <TextField
           name="salt"
           defaultValue={props.user?.salt}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
+          className="p-1 mb-2 border-2 border-zinc-300"
+          errorClassName="p-1 mb-2 border-2 border-zinc-300 p-1 mb-2 border-2 border-zinc-300-error"
           validation={{ required: true }}
         />
 
@@ -94,8 +94,8 @@ const UserForm = (props) => {
         <TextField
           name="resetToken"
           defaultValue={props.user?.resetToken}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
+          className="p-1 mb-2 border-2 border-zinc-300"
+          errorClassName="p-1 mb-2 border-2 border-zinc-300 p-1 mb-2 border-2 border-zinc-300-error"
         />
 
         <FieldError name="resetToken" className="rw-field-error" />
@@ -111,8 +111,8 @@ const UserForm = (props) => {
         <DatetimeLocalField
           name="resetTokenExpiresAt"
           defaultValue={formatDatetime(props.user?.resetTokenExpiresAt)}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
+          className="p-1 mb-2 border-2 border-zinc-300"
+          errorClassName="p-1 mb-2 border-2 border-zinc-300 p-1 mb-2 border-2 border-zinc-300-error"
         />
 
         <FieldError name="resetTokenExpiresAt" className="rw-field-error" />
@@ -128,8 +128,8 @@ const UserForm = (props) => {
         <TextField
           name="name"
           defaultValue={props.user?.name}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
+          className="p-1 mb-2 border-2 border-zinc-300"
+          errorClassName="p-1 mb-2 border-2 border-zinc-300 p-1 mb-2 border-2 border-zinc-300-error"
         />
 
         <FieldError name="name" className="rw-field-error" />
@@ -145,8 +145,8 @@ const UserForm = (props) => {
         <TextField
           name="roles"
           defaultValue={props.user?.roles}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
+          className="p-1 mb-2 border-2 border-zinc-300"
+          errorClassName="p-1 mb-2 border-2 border-zinc-300 p-1 mb-2 border-2 border-zinc-300-error"
           validation={{ required: true }}
         />
 

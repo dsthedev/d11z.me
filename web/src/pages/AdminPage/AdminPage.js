@@ -1,7 +1,10 @@
+import { useAuth } from '@redwoodjs/auth'
 import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 
 const AdminPage = () => {
+  const { currentUser, hasRole } = useAuth()
+
   return (
     <>
       <MetaTags title="Admin" description="Admin page" />
@@ -11,14 +14,28 @@ const AdminPage = () => {
           <h2>Manage Site</h2>
         </header>
         <article>
-          <p className="py-4 my-4">
-            <Link
-              to={routes.users()}
-              className="p-2 border-2 border-indigo-800 text-indigo-700 hover:text-indigo-900"
-            >
-              Users
-            </Link>
-          </p>
+          <ul className="flex flex-row">
+            {hasRole('admin') ? (
+              <li>
+                <Link
+                  to={routes.users()}
+                  className="p-1 border-2 border-red-400 bg-red-500 hover:bg-red-600 text-neutral-50 hover:text-neutral-200 text-lg"
+                >
+                  Users
+                </Link>
+              </li>
+            ) : (
+              false
+            )}
+            <li>
+              <Link
+                to={routes.posts()}
+                className="p-1 ml-1 border-2 border-orange-400 bg-orange-500 hover:bg-orange-600 text-neutral-50 hover:text-neutral-200 text-lg"
+              >
+                Posts
+              </Link>
+            </li>
+          </ul>
         </article>
       </main>
     </>

@@ -1,6 +1,6 @@
 import { Link, routes } from '@redwoodjs/router'
 import { Toaster } from '@redwoodjs/web/toast'
-import DefaultLayout from '../DefaultLayout/DefaultLayout'
+import DefaultLayout from 'src/layouts/DefaultLayout/DefaultLayout'
 
 const UsersLayout = ({ children }) => {
   return (
@@ -10,6 +10,14 @@ const UsersLayout = ({ children }) => {
 
         <header>
           <ul className="flex flex-row justify-evenly">
+            <li>
+              <Link
+                className="p-2 mb-2 hover:border-b-2 hover:border-slate-800"
+                to={routes.admin()}
+              >
+                Admin
+              </Link>
+            </li>
             <li>
               <Link
                 className="p-2 mb-2 hover:border-b-2 hover:border-slate-800"
