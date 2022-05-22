@@ -17,9 +17,13 @@ model User {
   resetToken          String?
   resetTokenExpiresAt DateTime?
 
-  name  String? @default("")
-  roles String  @default("guest")
-  posts Post[]
+  roles String @default("guest") // admin,editor
+
+  name        String? @default("")
+  displayName String? @default("")
+  firstName   String? @default("")
+  lastName    String? @default("")
+  posts       Post[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

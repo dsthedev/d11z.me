@@ -15,18 +15,6 @@ const AdminPage = () => {
         </header>
         <article>
           <ul className="flex flex-row">
-            {hasRole('admin') ? (
-              <li>
-                <Link
-                  to={routes.users()}
-                  className="p-1 border-2 border-red-400 bg-red-500 hover:bg-red-600 text-neutral-50 hover:text-neutral-200 text-lg"
-                >
-                  Users
-                </Link>
-              </li>
-            ) : (
-              false
-            )}
             <li>
               <Link
                 to={routes.posts()}
