@@ -1,9 +1,10 @@
 import { useAuth } from '@redwoodjs/auth'
 import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
+import ProfileCell from 'src/components/ProfileCell/ProfileCell'
 
 const AdminPage = () => {
-  const { currentUser, hasRole } = useAuth()
+  const { currentUser } = useAuth()
 
   return (
     <>
@@ -11,9 +12,9 @@ const AdminPage = () => {
 
       <main className="mx-auto max-w-prose">
         <header>
-          <h2>Manage Site</h2>
+          <h2>Manage: </h2>
         </header>
-        <article>
+        <nav className="mb-2">
           <ul className="flex flex-row">
             <li>
               <Link
@@ -24,7 +25,12 @@ const AdminPage = () => {
               </Link>
             </li>
           </ul>
-        </article>
+        </nav>
+        <section>
+          <pre>
+            <ProfileCell id={currentUser.id} />
+          </pre>
+        </section>
       </main>
     </>
   )

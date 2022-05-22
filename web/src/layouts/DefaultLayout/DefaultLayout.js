@@ -79,8 +79,12 @@ const DefaultLayout = ({ children }) => {
               )}
               {isAuthenticated ? (
                 <li className={navLiClasses + 'pr-4 text-stone-700'}>
-                  <code className="p-1 bg-sky-50 text-stone-500">
-                    [{currentUser.email + ':' + currentUser.roles + ''}]
+                  <code className="p-1 text-xs bg-slate-600 text-stone-200">
+                    {currentUser.firstName}
+                  </code>
+                  :
+                  <code className="p-1 text-xs bg-sky-600 text-stone-200">
+                    [{currentUser.roles}]
                   </code>
                 </li>
               ) : (
