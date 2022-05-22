@@ -7,8 +7,10 @@ export const QUERY = gql`
     posts {
       id
       authorId
+      parentId
       postType
       isSticky
+      pStatus
       title
       slug
       body

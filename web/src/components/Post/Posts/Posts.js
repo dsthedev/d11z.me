@@ -5,13 +5,12 @@ import { toast } from '@redwoodjs/web/toast'
 import { Link, routes } from '@redwoodjs/router'
 
 import { QUERY } from 'src/components/Post/PostsCell'
+import { useAuth } from '@redwoodjs/auth'
 
 const DELETE_POST_MUTATION = gql`
   mutation DeletePostMutation($id: Int!) {
     deletePost(id: $id) {
       id
-      title
-      slug
     }
   }
 `
@@ -56,6 +55,8 @@ const checkboxInputTag = (checked) => {
 }
 
 const PostsList = ({ posts }) => {
+  const { isAuthenticated } = useAuth()
+
   const [deletePost] = useMutation(DELETE_POST_MUTATION, {
     onCompleted: () => {
       toast.success('Post deleted')
@@ -77,8 +78,8 @@ const PostsList = ({ posts }) => {
   }
 
   return (
-    <div className="rw-segment rw-table-wrapper-responsive">
-      <table className="rw-table">
+    <div className=" my-6">
+      <table className="table-fixed">
         <thead>
           <tr>
             <th>Title</th>
@@ -87,32 +88,43 @@ const PostsList = ({ posts }) => {
         </thead>
         <tbody>
           {posts.map((post) => (
-            <tr key={post.id}>
-              <td>{truncate(post.title)}</td>
-              <td>
-                <nav className="rw-table-actions">
+            <tr
+              key={post.id}
+              className="mb-4 flex flex-row justify-between border-b-2 border-b-slate-400"
+            >
+              <td className="lg:text-2xl">
+                <h3>{truncate(post.title)}</h3>
+              </td>
+              <td className="lg:text-2xl">
+                <nav>
                   <Link
                     to={routes.post({ id: post.id })}
                     title={'Show post ' + post.id + ' detail'}
-                    className="rw-button rw-button-small"
+                    className="px-3 py-1 bg-slate-400"
                   >
-                    Show
+                    Read
                   </Link>
-                  <Link
-                    to={routes.editPost({ id: post.id })}
-                    title={'Edit post ' + post.id}
-                    className="rw-button rw-button-small rw-button-blue"
-                  >
-                    Edit
-                  </Link>
-                  <button
-                    type="button"
-                    title={'Delete post ' + post.id}
-                    className="rw-button rw-button-small rw-button-red"
-                    onClick={() => onDeleteClick(post.id)}
-                  >
-                    Delete
-                  </button>
+                  {isAuthenticated ? (
+                    <>
+                      <Link
+                        to={routes.editPost({ id: post.id })}
+                        title={'Edit post ' + post.id}
+                        className="px-3 py-1 bg-blue-300"
+                      >
+                        Edit
+                      </Link>
+                      <button
+                        type="button"
+                        title={'Delete post ' + post.id}
+                        className="px-3 py-1 bg-red-400"
+                        onClick={() => onDeleteClick(post.id)}
+                      >
+                        Delete
+                      </button>
+                    </>
+                  ) : (
+                    false
+                  )}
                 </nav>
               </td>
             </tr>

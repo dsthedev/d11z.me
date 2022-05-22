@@ -16,7 +16,7 @@ const PostForm = (props) => {
 
   return (
     <div className="rw-form-wrapper">
-      <Form onSubmit={onSubmit} error={props.error} className="flex flex-col">
+      <Form onSubmit={onSubmit} error={props.error}>
         <FormError
           error={props.error}
           wrapperClassName="rw-form-error-wrapper"
@@ -40,6 +40,23 @@ const PostForm = (props) => {
         />
 
         <FieldError name="authorId" className="rw-field-error" />
+
+        <Label
+          name="parentId"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Parent id
+        </Label>
+
+        <NumberField
+          name="parentId"
+          defaultValue={props.post?.parentId}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+        />
+
+        <FieldError name="parentId" className="rw-field-error" />
 
         <Label
           name="postType"
@@ -75,6 +92,24 @@ const PostForm = (props) => {
         />
 
         <FieldError name="isSticky" className="rw-field-error" />
+
+        <Label
+          name="pStatus"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          P status
+        </Label>
+
+        <TextField
+          name="pStatus"
+          defaultValue={props.post?.pStatus}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
+
+        <FieldError name="pStatus" className="rw-field-error" />
 
         <Label
           name="title"

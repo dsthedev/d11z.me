@@ -10,6 +10,9 @@ export const postPosts = () => {
       postType: {
         equals: 'post',
       },
+      pStatus: {
+        equals: 'publish',
+      },
     },
   })
 }

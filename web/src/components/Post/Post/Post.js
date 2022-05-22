@@ -3,6 +3,7 @@ import humanize from 'humanize-string'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 import { Link, routes, navigate } from '@redwoodjs/router'
+import { useAuth } from '@redwoodjs/auth'
 
 const DELETE_POST_MUTATION = gql`
   mutation DeletePostMutation($id: Int!) {
@@ -46,6 +47,8 @@ const checkboxInputTag = (checked) => {
 }
 
 const Post = ({ post }) => {
+  const { isAuthenticated } = useAuth()
+
   const [deletePost] = useMutation(DELETE_POST_MUTATION, {
     onCompleted: () => {
       toast.success('Post deleted')
@@ -64,68 +67,31 @@ const Post = ({ post }) => {
 
   return (
     <>
-      <div className="rw-segment">
+      <div className="mx-auto my-6 max-w-prose">
         <header className="rw-segment-header">
-          <h2 className="rw-heading rw-heading-secondary">
-            Post {post.id} Detail
-          </h2>
+          <h2 className="rw-heading rw-heading-secondary">{post.title}</h2>
         </header>
-        <table className="rw-table">
-          <tbody>
-            <tr>
-              <th>Id</th>
-              <td>{post.id}</td>
-            </tr>
-            <tr>
-              <th>Author id</th>
-              <td>{post.authorId}</td>
-            </tr>
-            <tr>
-              <th>Post type</th>
-              <td>{post.postType}</td>
-            </tr>
-            <tr>
-              <th>Is sticky</th>
-              <td>{checkboxInputTag(post.isSticky)}</td>
-            </tr>
-            <tr>
-              <th>Title</th>
-              <td>{post.title}</td>
-            </tr>
-            <tr>
-              <th>Slug</th>
-              <td>{post.slug}</td>
-            </tr>
-            <tr>
-              <th>Body</th>
-              <td>{post.body}</td>
-            </tr>
-            <tr>
-              <th>Created at</th>
-              <td>{timeTag(post.createdAt)}</td>
-            </tr>
-            <tr>
-              <th>Updated at</th>
-              <td>{timeTag(post.updatedAt)}</td>
-            </tr>
-          </tbody>
-        </table>
+        <article dangerouslySetInnerHTML={{ __html: post.body }}></article>
       </div>
-      <nav className="rw-button-group">
-        <Link
-          to={routes.editPost({ id: post.id })}
-          className="rw-button rw-button-blue"
-        >
-          Edit
-        </Link>
-        <button
-          type="button"
-          className="rw-button rw-button-red"
-          onClick={() => onDeleteClick(post.id)}
-        >
-          Delete
-        </button>
-      </nav>
+      {isAuthenticated ? (
+        <nav className="rw-button-group">
+          <Link
+            to={routes.editPost({ id: post.id })}
+            className="rw-button rw-button-blue"
+          >
+            Edit
+          </Link>
+          <button
+            type="button"
+            className="rw-button rw-button-red"
+            onClick={() => onDeleteClick(post.id)}
+          >
+            Delete
+          </button>
+        </nav>
+      ) : (
+        false
+      )}
     </>
   )
 }

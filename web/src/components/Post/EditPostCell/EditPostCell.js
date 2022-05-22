@@ -9,8 +9,10 @@ export const QUERY = gql`
     post: post(id: $id) {
       id
       authorId
+      parentId
       postType
       isSticky
+      pStatus
       title
       slug
       body
@@ -24,8 +26,10 @@ const UPDATE_POST_MUTATION = gql`
     updatePost(id: $id, input: $input) {
       id
       authorId
+      parentId
       postType
       isSticky
+      pStatus
       title
       slug
       body
@@ -55,6 +59,7 @@ export const Success = ({ post }) => {
   const onSave = (input, id) => {
     const castInput = Object.assign(input, {
       authorId: parseInt(input.authorId),
+      parentId: parseInt(input.parentId),
     })
     updatePost({ variables: { id, input: castInput } })
   }

@@ -3,8 +3,10 @@ export const schema = gql`
     id: Int!
     User: User
     authorId: Int
+    parentId: Int
     postType: String!
     isSticky: Boolean!
+    pStatus: String!
     title: String!
     slug: String
     body: String
@@ -20,8 +22,10 @@ export const schema = gql`
 
   input CreatePostInput {
     authorId: Int
+    parentId: Int
     postType: String!
     isSticky: Boolean!
+    pStatus: String!
     title: String!
     slug: String
     body: String
@@ -29,8 +33,10 @@ export const schema = gql`
 
   input UpdatePostInput {
     authorId: Int
+    parentId: Int
     postType: String
     isSticky: Boolean
+    pStatus: String
     title: String
     slug: String
     body: String

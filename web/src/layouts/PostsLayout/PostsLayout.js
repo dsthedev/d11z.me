@@ -1,6 +1,6 @@
 import { Link, routes } from '@redwoodjs/router'
 import { Toaster } from '@redwoodjs/web/toast'
-import DefaultLayout from 'src/layouts/DefaultLayout/DefaultLayout'
+import DefaultLayout from '../DefaultLayout/DefaultLayout'
 
 const PostsLayout = ({ children }) => {
   return (

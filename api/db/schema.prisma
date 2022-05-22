@@ -32,10 +32,13 @@ model User {
 model Post {
   id Int @id @default(autoincrement())
 
-  User     User?   @relation(fields: [authorId], references: [id])
-  authorId Int?    @default(1)
+  User     User? @relation(fields: [authorId], references: [id])
+  authorId Int?  @default(1)
+
+  parentId Int?    @default(0)
   postType String  @default("post")
   isSticky Boolean @default(false)
+  pStatus  String  @default("publish") // inherit,private,draft,password?
 
   title String
   slug  String? @default("")

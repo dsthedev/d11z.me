@@ -122,6 +122,8 @@ export default async () => {
         data.push({
           id: parseInt(source[i].wp_post_id[0]),
           title: source[i].title[0],
+          pStatus: source[i].wp_status[0],
+          parentId: parseInt(source[i].wp_post_parent[0]),
           slug: source[i].title[0]
             .replace(/\W+(?!$)/g, '-')
             .replace(/\W$/, '')

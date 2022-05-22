@@ -5,8 +5,10 @@ export const QUERY = gql`
     post: post(id: $id) {
       id
       authorId
+      parentId
       postType
       isSticky
+      pStatus
       title
       slug
       body
