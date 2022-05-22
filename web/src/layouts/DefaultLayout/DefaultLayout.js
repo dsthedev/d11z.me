@@ -1,9 +1,13 @@
+import { useAuth } from '@redwoodjs/auth'
 import { NavLink, routes } from '@redwoodjs/router'
 
 import logoPng from 'src/images/logo.png'
+
 import { LoginOrOutLink } from 'src/util/LoginOrLogoutLink'
 
 const DefaultLayout = ({ children }) => {
+  const { isAuthenticated, currentUser } = useAuth()
+
   const navLiClasses = 'p-1 mb-1'
   const navLinkClasses = 'hover:text-emerald-700'
   const navLinkActiveClasses = 'text-emerald-600'
@@ -46,14 +50,34 @@ const DefaultLayout = ({ children }) => {
         {children}
 
         <footer className="mx-auto max-w-prose mt-3 border-t-2 border-t-cyan-900">
-          <nav className="flex-flex-row justify-center">
-            <ul className="flex flex-col text-center">
-              <li className={navLiClasses}>
-                <h6>{<LoginOrOutLink />}</h6>
-              </li>
-              <li>
+          <nav>
+            <ul className="flex flex-row text-sm justify-center">
+              <li className={navLiClasses + 'pr-4 text-stone-300'}>
                 <span>&copy; d11z</span>
               </li>
+              {isAuthenticated ? (
+                <li className={navLiClasses + 'pr-4 text-stone-500'}>
+                  <NavLink
+                    className={navLinkClasses}
+                    activeClassName={navLinkActiveClasses}
+                    to={routes.admin()}
+                  >
+                    <em>Admin/</em>
+                  </NavLink>
+                </li>
+              ) : (
+                false
+              )}
+              {isAuthenticated ? (
+                <li className={navLiClasses + 'pr-4 text-stone-700'}>
+                  <code className="p-1 bg-sky-50 text-stone-500">
+                    [{currentUser.email + ':' + currentUser.roles + ''}]
+                  </code>
+                </li>
+              ) : (
+                false
+              )}
+              <li className={navLiClasses}>{<LoginOrOutLink />}</li>
             </ul>
           </nav>
         </footer>

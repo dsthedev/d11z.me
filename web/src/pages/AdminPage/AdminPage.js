@@ -6,14 +6,21 @@ const AdminPage = () => {
     <>
       <MetaTags title="Admin" description="Admin page" />
 
-      <h1>AdminPage</h1>
-      <p>
-        Find me in <code>./web/src/pages/AdminPage/AdminPage.js</code>
-      </p>
-      <p>
-        My default route is named <code>admin</code>, link to me with `
-        <Link to={routes.admin()}>Admin</Link>`
-      </p>
+      <main className="mx-auto max-w-prose">
+        <header>
+          <h2>Manage Site</h2>
+        </header>
+        <article>
+          <p className="py-4 my-4">
+            <Link
+              to={routes.users()}
+              className="p-2 border-2 border-indigo-800 text-indigo-700 hover:text-indigo-900"
+            >
+              Users
+            </Link>
+          </p>
+        </article>
+      </main>
     </>
   )
 }

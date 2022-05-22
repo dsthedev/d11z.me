@@ -102,28 +102,10 @@ const LoginPage = () => {
                     </Submit>
                   </div>
 
-                  <div className="text-center">
-                    <Link
-                      to={routes.forgotPassword()}
-                      className="text-sm text-stone-600 mt-6"
-                    >
-                      Forgot Password?
-                    </Link>
-                  </div>
-
                   <FieldError name="password" className="rw-field-error" />
                 </Form>
               </div>
             </div>
-          </div>
-          <div className="my-4 text-center">
-            <span>Don&apos;t have an account?</span>{' '}
-            <Link
-              to={routes.signup()}
-              className="px-4 py-1 hover:text-amber-800"
-            >
-              Sign up!
-            </Link>
           </div>
         </div>
       </main>
