@@ -4,11 +4,11 @@ import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 import { Link, routes } from '@redwoodjs/router'
 
-import { QUERY } from 'src/components/Post/PostsCell'
+import { QUERY } from 'src/components/Taxonomy/TaxonomiesCell'
 
-const DELETE_POST_MUTATION = gql`
-  mutation DeletePostMutation($id: Int!) {
-    deletePost(id: $id) {
+const DELETE_TAXONOMY_MUTATION = gql`
+  mutation DeleteTaxonomyMutation($id: Int!) {
+    deleteTaxonomy(id: $id) {
       id
     }
   }
@@ -53,10 +53,10 @@ const checkboxInputTag = (checked) => {
   return <input type="checkbox" checked={checked} disabled />
 }
 
-const PostsList = ({ posts }) => {
-  const [deletePost] = useMutation(DELETE_POST_MUTATION, {
+const TaxonomiesList = ({ taxonomies }) => {
+  const [deleteTaxonomy] = useMutation(DELETE_TAXONOMY_MUTATION, {
     onCompleted: () => {
-      toast.success('Post deleted')
+      toast.success('Taxonomy deleted')
     },
     onError: (error) => {
       toast.error(error.message)
@@ -69,45 +69,47 @@ const PostsList = ({ posts }) => {
   })
 
   const onDeleteClick = (id) => {
-    if (confirm('Are you sure you want to delete post ' + id + '?')) {
-      deletePost({ variables: { id } })
+    if (confirm('Are you sure you want to delete taxonomy ' + id + '?')) {
+      deleteTaxonomy({ variables: { id } })
     }
   }
 
   return (
     <div className="rw-segment rw-table-wrapper-responsive">
-      <table className="rw-table">
+      <table className="table-fixed text-left">
         <thead>
           <tr>
-            <th>Title</th>
+            <th>Name</th>
+            <th>Type</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
         <tbody>
-          {posts.map((post) => (
-            <tr key={post.id}>
-              <td>{truncate(post.title)}</td>
+          {taxonomies.map((taxonomy) => (
+            <tr key={taxonomy.id}>
+              <td>{truncate(taxonomy.name)}</td>
+              <td>{truncate(taxonomy.type)}</td>
               <td>
                 <nav className="rw-table-actions">
                   <Link
-                    to={routes.post({ id: post.id })}
-                    title={'Show post ' + post.id + ' detail'}
-                    className="rw-button rw-button-small"
+                    to={routes.taxonomy({ id: taxonomy.id })}
+                    title={'Show taxonomy ' + taxonomy.id + ' detail'}
+                    className="px-3 py-1 bg-slate-600 hover:bg-slate-800 text-slate-100 text-xs"
                   >
                     Show
                   </Link>
                   <Link
-                    to={routes.editPost({ id: post.id })}
-                    title={'Edit post ' + post.id}
-                    className="rw-button rw-button-small rw-button-blue"
+                    to={routes.editTaxonomy({ id: taxonomy.id })}
+                    title={'Edit taxonomy ' + taxonomy.id}
+                    className="px-3 py-1 bg-slate-600 hover:bg-slate-800 text-slate-100 text-xs "
                   >
                     Edit
                   </Link>
                   <button
                     type="button"
-                    title={'Delete post ' + post.id}
-                    className="rw-button rw-button-small rw-button-red"
-                    onClick={() => onDeleteClick(post.id)}
+                    title={'Delete taxonomy ' + taxonomy.id}
+                    className="px-3 py-1 bg-slate-600 hover:bg-slate-800 text-slate-100 text-xs "
+                    onClick={() => onDeleteClick(taxonomy.id)}
                   >
                     Delete
                   </button>
@@ -121,4 +123,4 @@ const PostsList = ({ posts }) => {
   )
 }
 
-export default PostsList
+export default TaxonomiesList

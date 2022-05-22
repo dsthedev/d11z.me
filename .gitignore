@@ -19,4 +19,5 @@ api/types/graphql.d.ts
 !.yarn/sdks
 !.yarn/versions
 
-scripts/data
+scripts/data/**/*
+web/src/data/**/*

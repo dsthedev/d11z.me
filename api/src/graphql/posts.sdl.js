@@ -6,16 +6,15 @@ export const schema = gql`
     postType: String!
     isSticky: Boolean!
     title: String!
-    slug: String!
-    body: String!
+    slug: String
+    body: String
     createdAt: DateTime!
     updatedAt: DateTime!
   }
 
   type Query {
     posts: [Post!]! @requireAuth
-    postPosts: [Post!]! @skipAuth
-    post(id: Int!): Post @skipAuth
+    post(id: Int!): Post @requireAuth
   }
 
   input CreatePostInput {
@@ -23,8 +22,8 @@ export const schema = gql`
     postType: String!
     isSticky: Boolean!
     title: String!
-    slug: String!
-    body: String!
+    slug: String
+    body: String
   }
 
   input UpdatePostInput {

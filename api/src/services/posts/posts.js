@@ -4,16 +4,6 @@ export const posts = () => {
   return db.post.findMany()
 }
 
-export const postPosts = () => {
-  return db.post.findMany({
-    where: {
-      postType: {
-        equals: 'post',
-      },
-    },
-  })
-}
-
 export const post = ({ id }) => {
   return db.post.findUnique({
     where: { id },

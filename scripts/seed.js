@@ -60,6 +60,58 @@ export default async () => {
     }
   }
 
+  /**
+   * Import WP Taxonomies
+   *
+   * Of course, these are all fragemented because WordPress, so this importer will combine them all into a Taxonomy object with a type and trimmed data
+   */
+  const importTaxonomies = () => {
+    try {
+      db.taxonomy.deleteMany()
+
+      const sourceData = require('./data/ds-everything.json')
+
+      const data = []
+
+      for (let i = 0; i < sourceData[0].wp_category.length; i++) {
+        data.push({
+          id: parseInt(sourceData[0].wp_category[i].wp_term_id[0]),
+          name: sourceData[0].wp_category[i].wp_cat_name[0],
+          slug: sourceData[0].wp_category[i].wp_category_nicename[0],
+          type: 'category',
+        })
+      }
+
+      for (let i = 0; i < sourceData[0].wp_tag.length; i++) {
+        data.push({
+          id: parseInt(sourceData[0].wp_tag[i].wp_term_id[0]),
+          name: sourceData[0].wp_tag[i].wp_tag_name[0],
+          slug: sourceData[0].wp_tag[i].wp_tag_slug[0],
+          type: 'tag',
+        })
+      }
+
+      for (let i = 0; i < sourceData[0].wp_term.length; i++) {
+        data.push({
+          id: parseInt(sourceData[0].wp_term[i].wp_term_id[0]),
+          name: sourceData[0].wp_term[i].wp_term_name[0],
+          slug: sourceData[0].wp_term[i].wp_term_slug[0],
+          type: 'term',
+        })
+      }
+
+      Promise.all(
+        data.map(async (data) => {
+          const record = await db.taxonomy.create({ data })
+          console.log('Importing: ==== ' + record.name + ' ===')
+        })
+      )
+    } catch (error) {
+      console.warn('Please define your taxonomy import data.')
+      console.error(error)
+    }
+  }
+
   const importPages = () => {
     try {
       const source = require('./data/ds-pages.json')
@@ -161,9 +213,12 @@ export default async () => {
   //   }
   // }
 
-  // importRates()
   importUsers()
+  importTaxonomies()
+
   // importPages()
   // importPosts()
   // importPortfolio()
+
+  // importRates()
 }

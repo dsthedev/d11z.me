@@ -45,6 +45,18 @@ model Post {
   updatedAt DateTime @updatedAt()
 }
 
+model Taxonomy {
+  id Int @id @default(autoincrement())
+
+  name        String
+  slug        String?
+  type        String  @default("tag") // term,category
+  description String? @default("")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt()
+}
+
 // model Rate {
 //   id Int @id @default(autoincrement())
 

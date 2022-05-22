@@ -1,10 +1,22 @@
 import { Router, Route, Set, Private } from '@redwoodjs/router'
+import TaxonomiesLayout from 'src/layouts/TaxonomiesLayout'
 import PostsLayout from 'src/layouts/PostsLayout'
 import DefaultLayout from './layouts/DefaultLayout/DefaultLayout'
 
 const Routes = () => {
   return (
     <Router>
+      <Set wrap={PostsLayout}>
+        <Route path="/posts/new" page={PostNewPostPage} name="newPost" />
+        <Route path="/posts/{id:Int}/edit" page={PostEditPostPage} name="editPost" />
+        <Route path="/posts" page={PostPostsPage} name="posts" />
+      </Set>
+      <Set wrap={TaxonomiesLayout}>
+        <Route path="/taxonomies/new" page={TaxonomyNewTaxonomyPage} name="newTaxonomy" />
+        <Route path="/taxonomies/{id:Int}/edit" page={TaxonomyEditTaxonomyPage} name="editTaxonomy" />
+        <Route path="/taxonomies/{id:Int}" page={TaxonomyTaxonomyPage} name="taxonomy" />
+        <Route path="/taxonomies" page={TaxonomyTaxonomiesPage} name="taxonomies" />
+      </Set>
       <Set wrap={DefaultLayout}>
         <Route path="/login" page={LoginPage} name="login" />
         <Route path="/signup" page={SignupPage} name="signup" />

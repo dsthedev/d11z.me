@@ -4,9 +4,9 @@ import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 import { Link, routes, navigate } from '@redwoodjs/router'
 
-const DELETE_POST_MUTATION = gql`
-  mutation DeletePostMutation($id: Int!) {
-    deletePost(id: $id) {
+const DELETE_TAXONOMY_MUTATION = gql`
+  mutation DeleteTaxonomyMutation($id: Int!) {
+    deleteTaxonomy(id: $id) {
       id
     }
   }
@@ -45,11 +45,11 @@ const checkboxInputTag = (checked) => {
   return <input type="checkbox" checked={checked} disabled />
 }
 
-const Post = ({ post }) => {
-  const [deletePost] = useMutation(DELETE_POST_MUTATION, {
+const Taxonomy = ({ taxonomy }) => {
+  const [deleteTaxonomy] = useMutation(DELETE_TAXONOMY_MUTATION, {
     onCompleted: () => {
-      toast.success('Post deleted')
-      navigate(routes.posts())
+      toast.success('Taxonomy deleted')
+      navigate(routes.taxonomies())
     },
     onError: (error) => {
       toast.error(error.message)
@@ -57,8 +57,8 @@ const Post = ({ post }) => {
   })
 
   const onDeleteClick = (id) => {
-    if (confirm('Are you sure you want to delete post ' + id + '?')) {
-      deletePost({ variables: { id } })
+    if (confirm('Are you sure you want to delete taxonomy ' + id + '?')) {
+      deleteTaxonomy({ variables: { id } })
     }
   }
 
@@ -67,61 +67,53 @@ const Post = ({ post }) => {
       <div className="rw-segment">
         <header className="rw-segment-header">
           <h2 className="rw-heading rw-heading-secondary">
-            Post {post.id} Detail
+            Taxonomy {taxonomy.id} Detail
           </h2>
         </header>
         <table className="rw-table">
           <tbody>
             <tr>
               <th>Id</th>
-              <td>{post.id}</td>
+              <td>{taxonomy.id}</td>
             </tr>
             <tr>
-              <th>Author id</th>
-              <td>{post.authorId}</td>
-            </tr>
-            <tr>
-              <th>Post type</th>
-              <td>{post.postType}</td>
-            </tr>
-            <tr>
-              <th>Is sticky</th>
-              <td>{checkboxInputTag(post.isSticky)}</td>
-            </tr>
-            <tr>
-              <th>Title</th>
-              <td>{post.title}</td>
+              <th>Name</th>
+              <td>{taxonomy.name}</td>
             </tr>
             <tr>
               <th>Slug</th>
-              <td>{post.slug}</td>
+              <td>{taxonomy.slug}</td>
             </tr>
             <tr>
-              <th>Body</th>
-              <td>{post.body}</td>
+              <th>Type</th>
+              <td>{taxonomy.type}</td>
+            </tr>
+            <tr>
+              <th>Description</th>
+              <td>{taxonomy.description}</td>
             </tr>
             <tr>
               <th>Created at</th>
-              <td>{timeTag(post.createdAt)}</td>
+              <td>{timeTag(taxonomy.createdAt)}</td>
             </tr>
             <tr>
               <th>Updated at</th>
-              <td>{timeTag(post.updatedAt)}</td>
+              <td>{timeTag(taxonomy.updatedAt)}</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <nav className="rw-button-group">
+      <nav className="flex flex-row">
         <Link
-          to={routes.editPost({ id: post.id })}
-          className="rw-button rw-button-blue"
+          to={routes.editTaxonomy({ id: taxonomy.id })}
+          className="px-3 py-1 bg-slate-600 hover:bg-slate-800 text-slate-100"
         >
           Edit
         </Link>
         <button
           type="button"
-          className="rw-button rw-button-red"
-          onClick={() => onDeleteClick(post.id)}
+          className="px-3 py-1 bg-slate-600 hover:bg-slate-800 text-slate-100"
+          onClick={() => onDeleteClick(taxonomy.id)}
         >
           Delete
         </button>
@@ -130,4 +122,4 @@ const Post = ({ post }) => {
   )
 }
 
-export default Post
+export default Taxonomy

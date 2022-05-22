@@ -7,7 +7,6 @@ import {
   TextField,
   CheckboxField,
   Submit,
-  TextAreaField,
 } from '@redwoodjs/forms'
 
 const PostForm = (props) => {
@@ -17,11 +16,7 @@ const PostForm = (props) => {
 
   return (
     <div className="rw-form-wrapper">
-      <Form
-        onSubmit={onSubmit}
-        error={props.error}
-        className="flex flex-col text-left"
-      >
+      <Form onSubmit={onSubmit} error={props.error} className="flex flex-col">
         <FormError
           error={props.error}
           wrapperClassName="rw-form-error-wrapper"
@@ -30,18 +25,53 @@ const PostForm = (props) => {
         />
 
         <Label
+          name="authorId"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Author id
+        </Label>
+
+        <NumberField
+          name="authorId"
+          defaultValue={props.post?.authorId}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+        />
+
+        <FieldError name="authorId" className="rw-field-error" />
+
+        <Label
+          name="postType"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Post type
+        </Label>
+
+        <TextField
+          name="postType"
+          defaultValue={props.post?.postType}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
+
+        <FieldError name="postType" className="rw-field-error" />
+
+        <Label
           name="isSticky"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Sticky?
+          Is sticky
         </Label>
 
         <CheckboxField
           name="isSticky"
           defaultChecked={props.post?.isSticky}
-          className="p-1 mb-2 border-2 border-zinc-300"
-          errorClassName="p-1 mb-2 border-2 border-zinc-300 p-1 mb-2 border-2 border-zinc-300-error"
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
         />
 
         <FieldError name="isSticky" className="rw-field-error" />
@@ -57,8 +87,8 @@ const PostForm = (props) => {
         <TextField
           name="title"
           defaultValue={props.post?.title}
-          className="p-1 mb-2 border-2 border-zinc-300"
-          errorClassName="p-1 mb-2 border-2 border-zinc-300 p-1 mb-2 border-2 border-zinc-300-error"
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
         />
 
@@ -75,9 +105,8 @@ const PostForm = (props) => {
         <TextField
           name="slug"
           defaultValue={props.post?.slug}
-          className="p-1 mb-2 border-2 border-zinc-300"
-          errorClassName="p-1 mb-2 border-2 border-zinc-300 p-1 mb-2 border-2 border-zinc-300-error"
-          validation={{ required: true }}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
         />
 
         <FieldError name="slug" className="rw-field-error" />
@@ -90,12 +119,11 @@ const PostForm = (props) => {
           Body
         </Label>
 
-        <TextAreaField
+        <TextField
           name="body"
           defaultValue={props.post?.body}
-          className="p-1 mb-2 border-2 border-zinc-300"
-          errorClassName="p-1 mb-2 border-2 border-zinc-300 p-1 mb-2 border-2 border-zinc-300-error"
-          validation={{ required: true }}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
         />
 
         <FieldError name="body" className="rw-field-error" />

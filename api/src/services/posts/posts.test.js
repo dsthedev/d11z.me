@@ -21,18 +21,11 @@ describe('posts', () => {
 
   scenario('creates a post', async () => {
     const result = await createPost({
-      input: {
-        title: 'String',
-        slug: 'String2954484',
-        body: 'String',
-        updatedAt: '2022-05-22T02:23:39Z',
-      },
+      input: { title: 'String', updatedAt: '2022-05-22T19:16:42Z' },
     })
 
     expect(result.title).toEqual('String')
-    expect(result.slug).toEqual('String2954484')
-    expect(result.body).toEqual('String')
-    expect(result.updatedAt).toEqual('2022-05-22T02:23:39Z')
+    expect(result.updatedAt).toEqual('2022-05-22T19:16:42Z')
   })
 
   scenario('updates a post', async (scenario) => {
