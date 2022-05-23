@@ -5,6 +5,7 @@ import { toast } from '@redwoodjs/web/toast'
 import { Link, routes } from '@redwoodjs/router'
 
 import { QUERY } from 'src/components/Bookmark/BookmarksCell'
+import { useAuth } from '@redwoodjs/auth'
 
 const DELETE_BOOKMARK_MUTATION = gql`
   mutation DeleteBookmarkMutation($id: Int!) {
@@ -54,6 +55,7 @@ const checkboxInputTag = (checked) => {
 }
 
 const BookmarksList = ({ bookmarks }) => {
+  const { isAuthenticated } = useAuth()
   const [deleteBookmark] = useMutation(DELETE_BOOKMARK_MUTATION, {
     onCompleted: () => {
       toast.success('Bookmark deleted')
@@ -75,58 +77,45 @@ const BookmarksList = ({ bookmarks }) => {
   }
 
   return (
-    <div className="rw-segment rw-table-wrapper-responsive">
-      <table className="rw-table">
+    <div className="mx-auto my-4 max-w-lg">
+      <table className="table-fixed">
         <thead>
           <tr>
-            <th>Id</th>
-            <th>Url</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Is sticky</th>
-            <th>Keywords</th>
-            <th>Created at</th>
-            <th>Updated at</th>
             <th>&nbsp;</th>
+            {isAuthenticated ? <th>&nbsp;</th> : false}
           </tr>
         </thead>
-        <tbody>
+        <tbody className="flex flex-col">
           {bookmarks.map((bookmark) => (
-            <tr key={bookmark.id}>
-              <td>{truncate(bookmark.id)}</td>
-              <td>{truncate(bookmark.url)}</td>
-              <td>{truncate(bookmark.name)}</td>
-              <td>{truncate(bookmark.description)}</td>
-              <td>{checkboxInputTag(bookmark.isSticky)}</td>
-              <td>{truncate(bookmark.keywords)}</td>
-              <td>{timeTag(bookmark.createdAt)}</td>
-              <td>{timeTag(bookmark.updatedAt)}</td>
+            <tr
+              key={bookmark.id}
+              className="flex flex-row justify-between mb-2"
+            >
               <td>
-                <nav className="rw-table-actions">
-                  <Link
-                    to={routes.bookmark({ id: bookmark.id })}
-                    title={'Show bookmark ' + bookmark.id + ' detail'}
-                    className="rw-button rw-button-small"
-                  >
-                    Show
-                  </Link>
-                  <Link
-                    to={routes.editBookmark({ id: bookmark.id })}
-                    title={'Edit bookmark ' + bookmark.id}
-                    className="rw-button rw-button-small rw-button-blue"
-                  >
-                    Edit
-                  </Link>
-                  <button
-                    type="button"
-                    title={'Delete bookmark ' + bookmark.id}
-                    className="rw-button rw-button-small rw-button-red"
-                    onClick={() => onDeleteClick(bookmark.id)}
-                  >
-                    Delete
-                  </button>
-                </nav>
+                <a
+                  href={bookmark.url}
+                  target="_blank"
+                  className="px-3 py-1 bg-zinc-300 hover:bg-zinc-500"
+                  rel="noreferrer"
+                >
+                  {truncate(bookmark.name)}
+                </a>
               </td>
+              {isAuthenticated ? (
+                <td>
+                  <nav className="rw-table-actions">
+                    <Link
+                      to={routes.editBookmark({ id: bookmark.id })}
+                      title={'Edit bookmark ' + bookmark.id}
+                      className="rw-button rw-button-small rw-button-blue"
+                    >
+                      Edit
+                    </Link>
+                  </nav>
+                </td>
+              ) : (
+                false
+              )}
             </tr>
           ))}
         </tbody>
