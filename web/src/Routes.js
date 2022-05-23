@@ -1,4 +1,5 @@
 import { Router, Route, Set, Private } from '@redwoodjs/router'
+import BookmarksLayout from 'src/layouts/BookmarksLayout'
 import TaxonomiesLayout from 'src/layouts/TaxonomiesLayout'
 import PostsLayout from 'src/layouts/PostsLayout'
 import DefaultLayout from './layouts/DefaultLayout/DefaultLayout'
@@ -35,10 +36,17 @@ const Routes = () => {
         </Set>
 
         <Set wrap={TaxonomiesLayout}>
-          <Route path="/taxonomies/new" page={TaxonomyNewTaxonomyPage} name="newTaxonomy" />
-          <Route path="/taxonomies/{id:Int}/edit" page={TaxonomyEditTaxonomyPage} name="editTaxonomy" />
-          <Route path="/taxonomies/{id:Int}" page={TaxonomyTaxonomyPage} name="taxonomy" />
-          <Route path="/taxonomies" page={TaxonomyTaxonomiesPage} name="taxonomies" />
+          <Route path="/admin/taxonomies/new" page={TaxonomyNewTaxonomyPage} name="newTaxonomy" />
+          <Route path="/admin/taxonomies/{id:Int}/edit" page={TaxonomyEditTaxonomyPage} name="editTaxonomy" />
+          <Route path="/admin/taxonomies/{id:Int}" page={TaxonomyTaxonomyPage} name="taxonomy" />
+          <Route path="/admin/taxonomies" page={TaxonomyTaxonomiesPage} name="taxonomies" />
+        </Set>
+
+        <Set wrap={BookmarksLayout}>
+          <Route path="/admin/bookmarks/new" page={BookmarkNewBookmarkPage} name="newBookmark" />
+          <Route path="/admin/bookmarks/{id:Int}/edit" page={BookmarkEditBookmarkPage} name="editBookmark" />
+          <Route path="/admin/bookmarks/{id:Int}" page={BookmarkBookmarkPage} name="bookmark" />
+          <Route path="/admin/bookmarks" page={BookmarkBookmarksPage} name="bookmarks" />
         </Set>
       </Private>
 

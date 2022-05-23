@@ -43,15 +43,6 @@ const DefaultLayout = ({ children }) => {
                   About
                 </NavLink>
               </li>
-              <li className={navLiClasses}>
-                <NavLink
-                  className={navLinkClasses}
-                  activeClassName={navLinkActiveClasses}
-                  to={routes.articles()}
-                >
-                  Posts
-                </NavLink>
-              </li>
             </ul>
           </nav>
         </header>

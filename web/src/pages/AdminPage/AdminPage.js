@@ -37,6 +37,14 @@ const AdminPage = () => {
                 Taxonomies
               </Link>
             </li>
+            <li>
+              <Link
+                className="p-2 mb-2 hover:border-b-2 hover:border-slate-800"
+                to={routes.bookmarks()}
+              >
+                Bookmarks
+              </Link>
+            </li>
           </ul>
         </header>
 

@@ -116,6 +116,13 @@ export default async () => {
     }
   }
 
+  /**
+   * Import Posts
+   *
+   * Currently merges all pages, posts, and portfolio items into one list, preserving most meta
+   *
+   * Posts don't have nice WYSIWYG Editor yet, but will soon enough
+   */
   const importPosts = () => {
     try {
       db.post.deleteMany()
@@ -156,6 +163,27 @@ export default async () => {
     }
   }
 
+  /**
+   * Import Bookmarks
+   */
+  const importBookmarks = () => {
+    try {
+      db.bookmark.deleteMany()
+
+      const data = require('./data/brave_bookmarks.json')
+
+      Promise.all(
+        data.map(async (data) => {
+          const record = await db.bookmark.create({ data })
+          console.log('Imported Bookmark: ' + record.name + ' =>')
+        })
+      )
+    } catch (error) {
+      console.warn('Please review bookmark import data.')
+      console.error(error)
+    }
+  }
+
   // const importRates = () => {
   //   try {
   //     const data = require('./data/rates.json')
@@ -172,8 +200,9 @@ export default async () => {
   // }
 
   importUsers()
-  importPosts()
-  importTaxonomies()
+  // importPosts()
+  // importTaxonomies()
+  importBookmarks()
 
   // importRates()
 }
