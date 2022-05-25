@@ -184,6 +184,39 @@ export default async () => {
     }
   }
 
+  const importClews = () => {
+    try {
+      db.clew.deleteMany()
+
+      const source = require('./data/accounts.json')
+      const data = []
+
+      for (let i = 0; i < source.length; i++) {
+        data.push({
+          for: source[i].account,
+          username: source[i].username,
+          email: source[i].email,
+          hint: source[i].hint,
+          symbols: source[i].symbols,
+          context: source[i].context,
+          loginURL: source[i].loginURL,
+          licenseKey: source[i].licenseKey,
+          notes: source[i].notes,
+        })
+      }
+
+      Promise.all(
+        data.map(async (data) => {
+          const record = await db.clew.create({ data })
+          console.log('*** Clew: [' + record.for + '] imported ***')
+        })
+      )
+    } catch (error) {
+      console.warn('Please define your user data.')
+      console.error(error)
+    }
+  }
+
   // const importRates = () => {
   //   try {
   //     const data = require('./data/rates.json')
@@ -202,7 +235,8 @@ export default async () => {
   importUsers()
   // importPosts()
   // importTaxonomies()
-  importBookmarks()
+  // importBookmarks()
+  importClews()
 
   // importRates()
 }

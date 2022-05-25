@@ -1,4 +1,5 @@
 import { Router, Route, Set, Private } from '@redwoodjs/router'
+import ClewsLayout from 'src/layouts/ClewsLayout'
 import BookmarksLayout from 'src/layouts/BookmarksLayout'
 import TaxonomiesLayout from 'src/layouts/TaxonomiesLayout'
 import PostsLayout from 'src/layouts/PostsLayout'
@@ -47,6 +48,13 @@ const Routes = () => {
           <Route path="/admin/bookmarks/{id:Int}/edit" page={BookmarkEditBookmarkPage} name="editBookmark" />
           <Route path="/admin/bookmarks/{id:Int}" page={BookmarkBookmarkPage} name="bookmark" />
           <Route path="/admin/bookmarks" page={BookmarkBookmarksPage} name="bookmarks" />
+        </Set>
+
+        <Set wrap={ClewsLayout}>
+          <Route path="/clews/new" page={ClewNewClewPage} name="newClew" />
+          <Route path="/clews/{id:Int}/edit" page={ClewEditClewPage} name="editClew" />
+          <Route path="/clews/{id:Int}" page={ClewClewPage} name="clew" />
+          <Route path="/clews" page={ClewClewsPage} name="clews" />
         </Set>
       </Private>
 

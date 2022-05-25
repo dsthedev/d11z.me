@@ -74,6 +74,23 @@ model Bookmark {
   updatedAt DateTime @updatedAt()
 }
 
+model Clew {
+  id Int @id @default(autoincrement())
+
+  for        String  @default("")
+  username   String? @default("")
+  email      String? @default("")
+  hint       String  @default("")
+  symbols    String? @default("")
+  context    String? @default("")
+  loginURL   String? @default("")
+  licenseKey String? @default("")
+  notes      String? @default("")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt()
+}
+
 // model Rate {
 //   id Int @id @default(autoincrement())
 
