@@ -2,7 +2,7 @@ import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 import { navigate, routes } from '@redwoodjs/router'
 
-import ClewForm from 'src/components/Clew/ClewForm'
+import ClewForm from 'src/components/Admin/ClewForm'
 
 export const QUERY = gql`
   query EditClewById($id: Int!) {
@@ -80,27 +80,30 @@ export const Success = ({ clew }) => {
     updateClew({ variables: { id, input } })
   }
 
-  const onDeleteClick = (id) => {
-    if (confirm('Delete ' + id + '?')) {
+  const onDeleteClick = ({ id }) => {
+    if (confirm('Delete Clew for ' + clew.for + '?')) {
       deleteClew({ variables: { id } })
     }
   }
 
   return (
-    <div className="rw-segment">
-      <header className="rw-segment-header">
-        <h2 className="rw-heading rw-heading-secondary">Edit Clew {clew.id}</h2>
+    <div className="clear-both">
+      <header className="text-3xl text-center">
+        <h2>{clew.for}</h2>
       </header>
-      <div className="rw-segment-main">
+      <section className="clear-both">
         <ClewForm clew={clew} onSave={onSave} error={error} loading={loading} />
-      </div>
-      <button
-        type="button"
-        className="rw-button rw-button-red"
-        onClick={() => onDeleteClick(clew.id)}
-      >
-        Delete
-      </button>
+      </section>
+      <hr />
+      <aside className="clear-both text-center">
+        <button
+          type="button"
+          className="px-2 py-1 text-white bg-red-800 hover:bg-red-900"
+          onClick={() => onDeleteClick(clew.id, clew.for)}
+        >
+          Delete
+        </button>
+      </aside>
     </div>
   )
 }

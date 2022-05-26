@@ -177,14 +177,12 @@ const ClewForm = (props) => {
 
         <FieldError name="notes" className="rw-field-error" />
 
-        <div className="rw-button-group">
-          <Submit
-            disabled={props.loading}
-            className="block px-5 py-2 text-white bg-green-600 hover:bg-green-800"
-          >
-            Save
-          </Submit>
-        </div>
+        <Submit
+          disabled={props.loading}
+          className="w-full inline-block text-2xl px-6 py-4 my-4 text-white bg-green-600 hover:bg-green-800"
+        >
+          Save
+        </Submit>
       </Form>
     </div>
   )

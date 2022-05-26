@@ -51,10 +51,10 @@ const Routes = () => {
         </Set>
 
         <Set wrap={ClewsLayout}>
-          <Route path="/clews/new" page={ClewNewClewPage} name="newClew" />
-          <Route path="/clews/{id:Int}/edit" page={ClewEditClewPage} name="editClew" />
-          <Route path="/clews/{id:Int}" page={ClewClewPage} name="clew" />
-          <Route path="/clews" page={ClewClewsPage} name="clews" />
+          <Route path="/admin/clews/new" page={ClewNewClewPage} name="newClew" />
+          <Route path="/admin/clews/edit/{id:Int}" page={AdminEditClewPage} name="editClew" />
+          <Route path="/admin/clews/{id:Int}" page={ClewClewPage} name="clew" />
+          <Route path="/admin/clews" page={ClewClewsPage} name="clews" />
         </Set>
       </Private>
 

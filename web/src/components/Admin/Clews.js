@@ -4,6 +4,8 @@ import { Link, routes } from '@redwoodjs/router'
 import moment from 'moment'
 import ClewsTable from 'src/components/Admin/ClewsTable'
 
+import downloadAsFile from 'src/util/DownloadAsFile'
+
 const MAX_STRING_LENGTH = 150
 
 const truncate = (text) => {
@@ -75,10 +77,29 @@ const ClewsList = ({ clews }) => {
     },
   ]
 
+  const exportToJson = (e) => {
+    e.preventDefault()
+    downloadAsFile({
+      data: JSON.stringify(clews),
+      fileName: 'clews.json',
+      fileType: 'text/json',
+    })
+  }
+
   return (
-    <div className="text-left">
-      <ClewsTable columns={columns} data={clews} />
-    </div>
+    <>
+      <section className="text-left">
+        <ClewsTable columns={columns} data={clews} />
+      </section>
+      <section className="text-center">
+        <button
+          onClick={exportToJson}
+          className="text-sm px-3 py-1 mx-auto my-4 bg-fuchsia-600 hover:bg-fuchsia-900 text-white"
+        >
+          Download as JSON
+        </button>
+      </section>
+    </>
   )
 }
 

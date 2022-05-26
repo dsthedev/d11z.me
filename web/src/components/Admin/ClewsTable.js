@@ -16,10 +16,10 @@ function GlobalFilter({
   const [value, setValue] = React.useState(globalFilter)
   const onChange = useAsyncDebounce((value) => {
     setGlobalFilter(value || undefined)
-  }, 200)
+  }, 150)
 
   return (
-    <div style={{ padding: 10, border: '1px solid', marginTop: 20 }}>
+    <div>
       Search:{' '}
       <input
         value={value || ''}
@@ -27,11 +27,8 @@ function GlobalFilter({
           setValue(e.target.value)
           onChange(e.target.value)
         }}
-        placeholder={`${count} records...`}
-        style={{
-          fontSize: '1.1rem',
-          border: '0',
-        }}
+        className="p-2 mb-2 border-2 border-slate-300 hover:border-slate-500"
+        placeholder={`${count} Clews...`}
       />
     </div>
   )
@@ -140,7 +137,8 @@ const ClewsTable = ({ columns, data }) => {
           disabled={!canNextPage}
         >
           {'>>'}
-        </button>{' '}
+        </button>
+        <br />
         <span>
           Page{' '}
           <strong>
@@ -156,16 +154,17 @@ const ClewsTable = ({ columns, data }) => {
               const page = e.target.value ? Number(e.target.value) - 1 : 0
               gotoPage(page)
             }}
-            style={{ width: '100px' }}
+            className="p-2 mb-2 border-2 border-slate-300 hover:border-slate-500 w-20"
           />
-        </span>{' '}
+        </span>
+        <br />
         <select
           value={pageSize}
           onChange={(e) => {
             setPageSize(Number(e.target.value))
           }}
         >
-          {[5, 10, 20, 30, 40, 50].map((pageSize) => (
+          {[10, 20, 50, 100, 999].map((pageSize) => (
             <option key={pageSize} value={pageSize}>
               Show {pageSize}
             </option>
