@@ -193,7 +193,7 @@ export default async () => {
 
       for (let i = 0; i < source.length; i++) {
         data.push({
-          for: source[i].account,
+          for: source[i].for,
           username: source[i].username,
           email: source[i].email,
           hint: source[i].hint,
@@ -202,6 +202,8 @@ export default async () => {
           loginURL: source[i].loginURL,
           licenseKey: source[i].licenseKey,
           notes: source[i].notes,
+          createdAt: source[i].createdAt,
+          updatedAt: source[i].updatedAt,
         })
       }
 

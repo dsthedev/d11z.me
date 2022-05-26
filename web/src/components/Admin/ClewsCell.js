@@ -7,11 +7,15 @@ export const QUERY = gql`
     clews {
       id
       for
+      username
       email
       hint
       symbols
       context
       loginURL
+      licenseKey
+      notes
+      createdAt
       updatedAt
     }
   }
