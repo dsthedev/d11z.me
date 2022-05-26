@@ -17,7 +17,6 @@ export const QUERY = gql`
       loginURL
       licenseKey
       notes
-      createdAt
       updatedAt
     }
   }
@@ -68,7 +67,7 @@ export const Success = ({ clew }) => {
 
   const [deleteClew] = useMutation(DELETE_CLEW_MUTATION, {
     onCompleted: () => {
-      toast.success('Clew deleted')
+      toast.success('Removed Clew')
       navigate(routes.clews())
     },
     onError: (error) => {
@@ -80,14 +79,14 @@ export const Success = ({ clew }) => {
     updateClew({ variables: { id, input } })
   }
 
-  const onDeleteClick = ({ id }) => {
+  const onDeleteClick = (id) => {
     if (confirm('Delete Clew for ' + clew.for + '?')) {
       deleteClew({ variables: { id } })
     }
   }
 
   return (
-    <div className="clear-both">
+    <div className="clear-both max-w-sm mx-auto">
       <header className="text-3xl text-center">
         <h2>{clew.for}</h2>
       </header>
@@ -99,7 +98,7 @@ export const Success = ({ clew }) => {
         <button
           type="button"
           className="px-2 py-1 text-white bg-red-800 hover:bg-red-900"
-          onClick={() => onDeleteClick(clew.id, clew.for)}
+          onClick={() => onDeleteClick(parseInt(clew.id))}
         >
           Delete
         </button>

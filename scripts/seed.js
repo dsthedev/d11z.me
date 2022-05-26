@@ -188,7 +188,7 @@ export default async () => {
     try {
       db.clew.deleteMany()
 
-      const source = require('./data/accounts.json')
+      const source = require('./data/clews.json')
       const data = []
 
       for (let i = 0; i < source.length; i++) {

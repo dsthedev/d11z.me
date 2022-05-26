@@ -99,9 +99,16 @@ const ClewsTable = ({ columns, data }) => {
           {page.map((row, i) => {
             prepareRow(row)
             return (
-              <tr {...row.getRowProps()}>
+              <tr
+                {...row.getRowProps()}
+                className="border-t-2 border-t-slate-300"
+              >
                 {row.cells.map((cell) => {
-                  return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                  return (
+                    <td {...cell.getCellProps()} className="py-2">
+                      {cell.render('Cell')}
+                    </td>
+                  )
                 })}
               </tr>
             )

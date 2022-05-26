@@ -1,7 +1,11 @@
 import { db } from 'src/lib/db'
 
 export const clews = () => {
-  return db.clew.findMany()
+  return db.clew.findMany({
+    orderBy: {
+      updatedAt: 'desc',
+    },
+  })
 }
 
 export const clew = ({ id }) => {

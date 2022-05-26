@@ -41,25 +41,45 @@ const timeTag = (datetime) => {
 const ClewsList = ({ clews }) => {
   const columns = [
     {
-      id: 'columnId_00.37521469417997544',
+      id: 'cFor',
       Header: 'For',
       Footer: '',
       accessor: 'for',
+      Cell: ({ cell }) => {
+        return (
+          <a
+            href={cell.row.original.loginURL}
+            title={'Open ' + cell.row.original.for + ' in new tab'}
+            target="_blank"
+            className="inline p-1 bg-stone-100 hover:bg-stone-200"
+            rel="noreferrer"
+          >
+            {cell.row.values.cFor} &rArr;
+          </a>
+        )
+      },
     },
     {
-      id: 'columnId_00.8619334584612908',
+      id: 'cEmail',
+      Header: 'Email',
+      Footer: '',
+      accessor: 'email',
+    },
+    {
+      id: 'cHint',
       Header: 'Hints',
       Footer: '',
       accessor: 'hint',
+      Cell: ({ value }) => <em>{value}</em>,
     },
     {
-      id: 'columnId_00.31456457645738234',
+      id: 'cSymbols',
       Header: 'Symbols',
       Footer: '',
       accessor: 'symbols',
     },
     {
-      id: 'columnId_00.21166297516750898',
+      id: 'cId',
       Header: 'Show',
       Footer: '',
       accessor: 'id',
@@ -68,7 +88,7 @@ const ClewsList = ({ clews }) => {
           <Link
             to={routes.editClew({ id: value })}
             title={'Edit Clew'}
-            className="block px-3 py-2 text-white bg-blue-600 hover:bg-blue-800"
+            className="inline-block px-5 py-2 text-white bg-cyan-800 hover:bg-blue-900"
           >
             Edit
           </Link>

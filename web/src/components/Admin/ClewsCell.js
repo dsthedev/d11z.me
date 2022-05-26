@@ -7,6 +7,7 @@ export const QUERY = gql`
     clews {
       id
       for
+      email
       hint
       symbols
       context

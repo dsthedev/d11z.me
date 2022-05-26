@@ -7,7 +7,7 @@ const ClewsLayout = ({ children }) => {
     <DefaultLayout>
       <Toaster toastOptions={{ className: 'rw-toast', duration: 3000 }} />
 
-      <div className="mx-auto mb-6 max-w-md">
+      <div className="mx-auto mb-6 max-w-3xl">
         <header>
           <ul className="flex flex-row justify-start">
             <li>
