@@ -1,6 +1,9 @@
 import { useAuth } from '@redwoodjs/auth'
 import { NavLink, routes } from '@redwoodjs/router'
 
+// import 'src/css/fontawesome-all.min.css'
+// import 'src/css/future-imperfect.css'
+
 import logoPng from 'src/images/logo.png'
 
 import { LoginOrOutLink } from 'src/util/LoginOrLogoutLink'

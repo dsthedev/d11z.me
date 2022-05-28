@@ -18,7 +18,6 @@ const Routes = () => {
         <Route path="/posts/{id:Int}" page={PostPostPage} name="post" />
 
         <Route path="/login" page={LoginPage} name="login" />
-        <Route path="/signup" page={SignupPage} name="signup" />
         {/* <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
         <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" /> */}
       </Set>
@@ -30,6 +29,10 @@ const Routes = () => {
       </Private>
 
       <Private unauthenticated="admin" roles={['admin', 'editor']}>
+        <Set wrap={DefaultLayout}>
+          <Route path="/signup" page={SignupPage} name="signup" />
+        </Set>
+
         <Set wrap={PostsLayout}>
           <Route path="/admin/posts/new" page={PostNewPostPage} name="newPost" />
           <Route path="/admin/posts/{id:Int}/edit" page={PostEditPostPage} name="editPost" />

@@ -55,6 +55,8 @@ export const Failure = ({ error }) => (
 )
 
 export const Success = ({ clew }) => {
+  const isEditing = true
+
   const [updateClew, { loading, error }] = useMutation(UPDATE_CLEW_MUTATION, {
     onCompleted: () => {
       toast.success('Clew updated')
@@ -91,7 +93,13 @@ export const Success = ({ clew }) => {
         <h2>{clew.for}</h2>
       </header>
       <section className="clear-both">
-        <ClewForm clew={clew} onSave={onSave} error={error} loading={loading} />
+        <ClewForm
+          clew={clew}
+          onSave={onSave}
+          error={error}
+          loading={loading}
+          isEditing={isEditing}
+        />
       </section>
       <hr />
       <aside className="clear-both text-center">

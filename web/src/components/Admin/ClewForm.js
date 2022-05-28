@@ -12,6 +12,12 @@ const ClewForm = (props) => {
     props.onSave(data, props?.clew?.id)
   }
 
+  const testLoginUrl = (e) => {
+    e.preventDefault()
+
+    window.open(document.getElementsByName('loginURL')[0].value, '_blank')
+  }
+
   return (
     <div className="rw-form-wrapper">
       <Form onSubmit={onSubmit} error={props.error} className="flex flex-col">
@@ -131,7 +137,7 @@ const ClewForm = (props) => {
           className="font-bold"
           errorClassName="rw-label rw-label-error"
         >
-          Login url
+          Login URL
         </Label>
 
         <TextField
@@ -142,6 +148,10 @@ const ClewForm = (props) => {
         />
 
         <FieldError name="loginURL" className="rw-field-error" />
+
+        <button onClick={testLoginUrl} className="text-sm p-1 bg-slate-50">
+          Test Login URL
+        </button>
 
         <Label
           name="licenseKey"

@@ -55,7 +55,7 @@ const AdminPage = () => {
             </li>
           </ul>
         </header>
-        <hr />
+
         <section>
           <ProfileCell id={currentUser?.id ? currentUser.id : false} />
         </section>

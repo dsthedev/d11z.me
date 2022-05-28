@@ -188,22 +188,22 @@ export default async () => {
     try {
       db.clew.deleteMany()
 
-      const source = require('./data/clews.json')
+      const src = require('./data/clews.json')
       const data = []
 
-      for (let i = 0; i < source.length; i++) {
+      for (let i = 0; i < src.length; i++) {
         data.push({
-          for: source[i].for,
-          username: source[i].username,
-          email: source[i].email,
-          hint: source[i].hint,
-          symbols: source[i].symbols,
-          context: source[i].context,
-          loginURL: source[i].loginURL,
-          licenseKey: source[i].licenseKey,
-          notes: source[i].notes,
-          createdAt: source[i].createdAt,
-          updatedAt: source[i].updatedAt,
+          for: src[i].for,
+          username: src[i].username,
+          email: src[i].email,
+          hint: src[i].hint,
+          symbols: src[i].symbols,
+          context: src[i].context,
+          loginURL: src[i].loginURL,
+          licenseKey: src[i].licenseKey,
+          notes: src[i].notes,
+          createdAt: src[i].createdAt,
+          updatedAt: src[i].updatedAt,
         })
       }
 
