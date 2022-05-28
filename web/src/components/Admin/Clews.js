@@ -52,17 +52,17 @@ const ClewsList = ({ clews }) => {
               href={cell.row.original.loginURL}
               title={'Open ' + cell.row.original.for + ' in new tab'}
               target="_blank"
-              className="inline p-1 bg-emerald-50 hover:bg-emerald-100"
+              className="inline px-3 py-2 md:text-lg font-bold bg-emerald-50 hover:bg-emerald-200"
               rel="noreferrer"
             >
-              {cell.row.values.cFor} &#8663;
+              {cell.row.values.cFor} <small className="text-sm">&#8663;</small>
               {cell.row.values.cFor.length > 1}
             </a>
           )
         } else {
           return (
-            <span className="inline px-2 py-1 bg-rose-50 hover:bg-rose-100">
-              {cell.row.values.cFor} &#10007;
+            <span className="inline px-3 py-2 md:text-lg font-bold bg-rose-50 hover:bg-rose-200">
+              {cell.row.values.cFor} <small className="text-sm">&#10007;</small>
             </span>
           )
         }
@@ -81,22 +81,11 @@ const ClewsList = ({ clews }) => {
             </strong>
             <br />
             <em className="text-xs">{cell.row.original.email}</em>
+            <br />
+            <span className="text-sm">{cell.row.original.hint}</span>
           </>
         )
       },
-    },
-    {
-      id: 'cHint',
-      Header: 'Hint',
-      Footer: '',
-      accessor: 'hint',
-      Cell: ({ value }) => <em>{value}</em>,
-    },
-    {
-      id: 'cSymbols',
-      Header: ' ',
-      Footer: '',
-      accessor: 'symbols',
     },
     {
       id: 'cId',
@@ -108,7 +97,7 @@ const ClewsList = ({ clews }) => {
           <Link
             to={routes.editClew({ id: value })}
             title={'Edit Clew'}
-            className="inline-block px-5 py-2 text-white bg-cyan-800 hover:bg-blue-900"
+            className="inline-block p-2 text-white bg-indigo-800 hover:bg-indigo-900"
           >
             <i className="fa fa-pencil"></i>
             <span className="visually-hidden">Edit</span>
