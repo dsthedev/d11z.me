@@ -82,7 +82,15 @@ const ClewsList = ({ clews }) => {
             <br />
             <em className="text-xs">{cell.row.original.email}</em>
             <br />
-            <span className="text-sm">{cell.row.original.hint}</span>
+            <span
+              className={
+                cell.row.original.hint.length < 10
+                  ? 'text-sm px-2 py-0 bg-rose-50 text-rose-900'
+                  : 'text-sm'
+              }
+            >
+              {cell.row.original.hint}
+            </span>
           </>
         )
       },
