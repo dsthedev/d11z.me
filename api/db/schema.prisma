@@ -1,5 +1,5 @@
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -30,7 +30,8 @@ model User {
 }
 
 model Post {
-  id Int @id @default(autoincrement())
+  id   Int  @id @default(autoincrement())
+  wpId Int?
 
   User     User? @relation(fields: [authorId], references: [id])
   authorId Int?  @default(1)
@@ -55,6 +56,36 @@ model Taxonomy {
   slug        String?
   type        String  @default("tag") // term,category
   description String? @default("")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt()
+}
+
+model Bookmark {
+  id Int @id @default(autoincrement())
+
+  url         String  @default("#")
+  name        String  @default("")
+  description String? @default("")
+  isSticky    Boolean @default(false)
+  keywords    String? @default("")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt()
+}
+
+model Clew {
+  id Int @id @default(autoincrement())
+
+  for        String  @default("")
+  username   String? @default("")
+  email      String? @default("")
+  hint       String  @default("")
+  symbols    String? @default("")
+  context    String? @default("")
+  loginURL   String? @default("")
+  licenseKey String? @default("")
+  notes      String? @default("")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt()

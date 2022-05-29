@@ -1,6 +1,9 @@
 import { useAuth } from '@redwoodjs/auth'
 import { NavLink, routes } from '@redwoodjs/router'
 
+// import 'src/css/fontawesome-all.min.css'
+// import 'src/css/future-imperfect.css'
+
 import logoPng from 'src/images/logo.png'
 
 import { LoginOrOutLink } from 'src/util/LoginOrLogoutLink'
@@ -41,15 +44,6 @@ const DefaultLayout = ({ children }) => {
                   to={routes.about()}
                 >
                   About
-                </NavLink>
-              </li>
-              <li className={navLiClasses}>
-                <NavLink
-                  className={navLinkClasses}
-                  activeClassName={navLinkActiveClasses}
-                  to={routes.articles()}
-                >
-                  Posts
                 </NavLink>
               </li>
             </ul>
