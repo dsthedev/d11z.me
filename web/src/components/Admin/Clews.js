@@ -46,8 +46,10 @@ const ClewsList = ({ clews }) => {
       Footer: '',
       accessor: 'for',
       Cell: ({ cell }) => {
+        let content = ''
+
         if (cell.row.original.loginURL.length > 1) {
-          return (
+          content = (
             <a
               href={cell.row.original.loginURL}
               title={'Open ' + cell.row.original.for + ' in new tab'}
@@ -60,12 +62,17 @@ const ClewsList = ({ clews }) => {
             </a>
           )
         } else {
-          return (
+          content = (
             <span className="inline px-3 py-2 md:text-lg font-bold bg-rose-50 hover:bg-rose-200">
               {cell.row.values.cFor} <small className="text-sm">&#10007;</small>
             </span>
           )
         }
+        return (
+          <>
+            <h5>{content}</h5>
+          </>
+        )
       },
     },
     {
@@ -75,23 +82,23 @@ const ClewsList = ({ clews }) => {
       accessor: 'email',
       Cell: ({ cell }) => {
         return (
-          <>
-            <strong>
+          <div className="bar-group">
+            <strong className="barred">
               {cell.row.original.username ? cell.row.original.username : '...'}
             </strong>
             <br />
-            <em className="text-xs">{cell.row.original.email}</em>
+            <em className="text-xs barred">{cell.row.original.email}</em>
             <br />
             <span
               className={
                 cell.row.original.hint.length < 10
-                  ? 'text-sm px-2 py-0 bg-rose-50 text-rose-900'
-                  : 'text-sm'
+                  ? 'text-sm barred px-2 py-0 bg-rose-50 text-rose-900'
+                  : 'text-sm barred'
               }
             >
               {cell.row.original.hint}
             </span>
-          </>
+          </div>
         )
       },
     },

@@ -1,11 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300&family=Source+Serif+4:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&family=Milonga&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Flow+Rounded&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Redacted+Script:wght@300&display=swap'); */
 
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
 body {
-  font-family: 'Source Sans 3';
+  font-family: 'Source Sans Pro';
 }
 
 header,
@@ -15,7 +17,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Source Serif 4';
+  font-family: 'Milonga';
   margin-bottom: 0.5rem;
 }
 
@@ -33,6 +35,26 @@ hr {
   margin: 0.5rem auto;
   max-width: 80%;
 }
+
 p {
   margin-bottom: 0.5rem;
+}
+
+.barred {
+  background: black;
+  color: black;
+  transition: all 0.4s ease-in;
+}
+
+.barred:hover,
+.barred:focus,
+.barred:active {
+  background: white;
+  transition: all 0.2s ease-out;
+}
+
+.bar-group:hover>*,
+.bar-group:focus>*,
+.bar-group:active>* {
+  background: white;
 }
