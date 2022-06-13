@@ -234,11 +234,11 @@ export default async () => {
   //   }
   // }
 
-  importUsers()
+  // importUsers()
   // importPosts()
   // importTaxonomies()
   // importBookmarks()
-  importClews()
+  // importClews()
 
   // importRates()
 }
