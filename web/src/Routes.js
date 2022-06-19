@@ -1,8 +1,5 @@
 import { Router, Route, Set, Private } from '@redwoodjs/router'
-import ClewsLayout from 'src/layouts/ClewsLayout'
-import BookmarksLayout from 'src/layouts/BookmarksLayout'
-import TaxonomiesLayout from 'src/layouts/TaxonomiesLayout'
-import PostsLayout from 'src/layouts/PostsLayout'
+import AdminLayout from 'src/layouts/AdminLayout'
 import DefaultLayout from './layouts/DefaultLayout/DefaultLayout'
 
 const Routes = () => {
@@ -22,38 +19,38 @@ const Routes = () => {
         <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" /> */}
       </Set>
 
-      <Private unauthenticated="login">
-        <Set wrap={DefaultLayout}>
+      <Private unauthenticated="home">
+        <Set wrap={AdminLayout}>
           <Route path="/admin" page={AdminPage} name="admin" />
         </Set>
       </Private>
 
-      <Private unauthenticated="admin" roles={['admin', 'editor']}>
+      <Private unauthenticated="home" roles={['admin', 'editor']}>
         <Set wrap={DefaultLayout}>
           <Route path="/signup" page={SignupPage} name="signup" />
         </Set>
 
-        <Set wrap={PostsLayout}>
+        <Set wrap={AdminLayout}>
+          <Route path="/admin/sups/new" page={SupNewSupPage} name="newSup" />
+          <Route path="/admin/sups/{id:Int}/edit" page={SupEditSupPage} name="editSup" />
+          <Route path="/admin/sups/{id:Int}" page={SupSupPage} name="sup" />
+          <Route path="/admin/sups" page={SupSupsPage} name="sups" />
+
           <Route path="/admin/posts/new" page={PostNewPostPage} name="newPost" />
           <Route path="/admin/posts/{id:Int}/edit" page={PostEditPostPage} name="editPost" />
+          <Route path="/admin/posts/{id:Int}" page={PostPostPage} name="post" />
           <Route path="/admin/posts" page={PostPostsPage} name="posts" />
-        </Set>
 
-        <Set wrap={TaxonomiesLayout}>
           <Route path="/admin/taxonomies/new" page={TaxonomyNewTaxonomyPage} name="newTaxonomy" />
           <Route path="/admin/taxonomies/{id:Int}/edit" page={TaxonomyEditTaxonomyPage} name="editTaxonomy" />
           <Route path="/admin/taxonomies/{id:Int}" page={TaxonomyTaxonomyPage} name="taxonomy" />
           <Route path="/admin/taxonomies" page={TaxonomyTaxonomiesPage} name="taxonomies" />
-        </Set>
 
-        <Set wrap={BookmarksLayout}>
           <Route path="/admin/bookmarks/new" page={BookmarkNewBookmarkPage} name="newBookmark" />
           <Route path="/admin/bookmarks/{id:Int}/edit" page={BookmarkEditBookmarkPage} name="editBookmark" />
           <Route path="/admin/bookmarks/{id:Int}" page={BookmarkBookmarkPage} name="bookmark" />
           <Route path="/admin/bookmarks" page={BookmarkBookmarksPage} name="bookmarks" />
-        </Set>
 
-        <Set wrap={ClewsLayout}>
           <Route path="/admin/clews/new" page={ClewNewClewPage} name="newClew" />
           <Route path="/admin/clews/edit/{id:Int}" page={AdminEditClewPage} name="editClew" />
           <Route path="/admin/clews/{id:Int}" page={ClewClewPage} name="clew" />

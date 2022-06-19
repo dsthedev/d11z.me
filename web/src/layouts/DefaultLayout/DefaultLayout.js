@@ -20,20 +20,24 @@ const DefaultLayout = ({ children }) => {
       <div className="h-screen">
         <header className="mx-auto max-w-prose">
           <nav className="mb-2 border-b-2 border-b-emerald-800">
-            <ul className="w-full flex flex-row justify-center">
+            <ul className="w-full flex flex-row justify-center text-m md:text-xl lg:text-3xl ">
               <li className={navLiClasses}>
                 <h1>
                   <NavLink
                     className={navLinkClasses}
                     activeClassName={navLinkActiveClasses}
-                    to={routes.home()}
+                    to={isAuthenticated ? routes.admin() : routes.home()}
                   >
                     <img
                       src={logoPng}
                       alt="d11z logo"
-                      className="w-6 transition ease-in-out delay-100 hover:scale-110"
+                      className="w-6 md:w-8 lg:w-10 transition ease-in-out delay-100 hover:scale-110"
                     />
-                    <span className="visually-hidden">Home</span>
+                    <span className="visually-hidden">
+                      <i className="fa fa-home">
+                        <span className="visually-hidden">Home</span>
+                      </i>
+                    </span>
                   </NavLink>
                 </h1>
               </li>
@@ -52,14 +56,29 @@ const DefaultLayout = ({ children }) => {
 
         {children}
 
-        <footer className="mx-auto max-w-prose mt-3 border-t-2 border-t-cyan-900">
+        <footer className="mx-auto max-w-prose p-4 my-4 border-t-2 border-t-cyan-900">
           <nav>
-            <ul className="flex flex-row text-sm justify-center">
-              <li className={navLiClasses + 'pr-4 text-stone-300'}>
+            {isAuthenticated ? (
+              <ul className="flex flex-row text-lg justify-center">
+                <li className={navLiClasses + 'pr-4 text-stone-700'}>
+                  <code className="px-3 py-1 text-xs bg-slate-500 hover:bg-slate-600 text-stone-200">
+                    {currentUser?.firstName ? currentUser.firstName : '?'}
+                  </code>
+                  <span className="px-3">::</span>
+                  <code className="px-3 py-1 text-xs bg-sky-500 hover:bg-sky-600 text-stone-200">
+                    {currentUser?.roles ? currentUser.roles : '?'}
+                  </code>
+                </li>
+              </ul>
+            ) : (
+              false
+            )}
+            <ul className="flex flex-row text-md justify-center">
+              <li className={navLiClasses + 'pr-4 text-stone-400'}>
                 <span>&copy; d11z</span>
               </li>
               {isAuthenticated ? (
-                <li className={navLiClasses + 'pr-4 text-stone-500'}>
+                <li className={navLiClasses + 'pr-4 text-stone-800'}>
                   <NavLink
                     className={navLinkClasses}
                     activeClassName={navLinkActiveClasses}
@@ -67,19 +86,6 @@ const DefaultLayout = ({ children }) => {
                   >
                     <em>Admin/</em>
                   </NavLink>
-                </li>
-              ) : (
-                false
-              )}
-              {isAuthenticated ? (
-                <li className={navLiClasses + 'pr-4 text-stone-700'}>
-                  <code className="p-1 text-xs bg-slate-600 text-stone-200">
-                    {currentUser?.firstName ? currentUser.firstName : '?'}
-                  </code>
-                  :
-                  <code className="p-1 text-xs bg-sky-600 text-stone-200">
-                    {currentUser?.roles ? currentUser.roles : '?'}
-                  </code>
                 </li>
               ) : (
                 false

@@ -25,7 +25,7 @@ const BookmarkForm = (props) => {
 
         <Label
           name="url"
-          className="rw-label"
+          className="p-1 mt-2 mx-4"
           errorClassName="rw-label rw-label-error"
         >
           Url
@@ -34,7 +34,7 @@ const BookmarkForm = (props) => {
         <TextField
           name="url"
           defaultValue={props.bookmark?.url}
-          className="rw-input"
+          className="p-1 border-2 border-zinc-400 mb-6 mx-4"
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
         />
@@ -43,7 +43,7 @@ const BookmarkForm = (props) => {
 
         <Label
           name="name"
-          className="rw-label"
+          className="p-1 mt-2 mx-4"
           errorClassName="rw-label rw-label-error"
         >
           Name
@@ -52,7 +52,7 @@ const BookmarkForm = (props) => {
         <TextField
           name="name"
           defaultValue={props.bookmark?.name}
-          className="rw-input"
+          className="p-1 border-2 border-zinc-400 mb-6 mx-4"
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
         />
@@ -61,7 +61,7 @@ const BookmarkForm = (props) => {
 
         <Label
           name="description"
-          className="rw-label"
+          className="p-1 mt-2 mx-4"
           errorClassName="rw-label rw-label-error"
         >
           Description
@@ -70,7 +70,7 @@ const BookmarkForm = (props) => {
         <TextField
           name="description"
           defaultValue={props.bookmark?.description}
-          className="rw-input"
+          className="p-1 border-2 border-zinc-400 mb-6 mx-4"
           errorClassName="rw-input rw-input-error"
         />
 
@@ -78,7 +78,7 @@ const BookmarkForm = (props) => {
 
         <Label
           name="isSticky"
-          className="rw-label"
+          className="p-1 mt-2 mx-4"
           errorClassName="rw-label rw-label-error"
         >
           Is sticky
@@ -87,7 +87,7 @@ const BookmarkForm = (props) => {
         <CheckboxField
           name="isSticky"
           defaultChecked={props.bookmark?.isSticky}
-          className="rw-input"
+          className="p-1 border-2 border-zinc-400 mb-6 mx-4"
           errorClassName="rw-input rw-input-error"
         />
 
@@ -95,7 +95,7 @@ const BookmarkForm = (props) => {
 
         <Label
           name="keywords"
-          className="rw-label"
+          className="p-1 mt-2 mx-4"
           errorClassName="rw-label rw-label-error"
         >
           Keywords
@@ -104,7 +104,7 @@ const BookmarkForm = (props) => {
         <TextField
           name="keywords"
           defaultValue={props.bookmark?.keywords}
-          className="rw-input"
+          className="p-1 border-2 border-zinc-400 mb-6 mx-4"
           errorClassName="rw-input rw-input-error"
         />
 

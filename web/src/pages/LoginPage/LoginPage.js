@@ -56,7 +56,7 @@ const LoginPage = () => {
                 <Form onSubmit={onSubmit} className="flex flex-col">
                   <Label
                     name="username"
-                    className="rw-label"
+                    className="p-1 mt-2 mx-4"
                     errorClassName="rw-label rw-label-error"
                   >
                     Email
@@ -78,7 +78,7 @@ const LoginPage = () => {
 
                   <Label
                     name="password"
-                    className="rw-label"
+                    className="p-1 mt-2 mx-4"
                     errorClassName="rw-label rw-label-error"
                   >
                     Password

@@ -24,7 +24,7 @@ const TaxonomyForm = (props) => {
 
         <Label
           name="name"
-          className="rw-label"
+          className="p-1 mt-2 mx-4"
           errorClassName="rw-label rw-label-error"
         >
           Name
@@ -42,7 +42,7 @@ const TaxonomyForm = (props) => {
 
         <Label
           name="slug"
-          className="rw-label"
+          className="p-1 mt-2 mx-4"
           errorClassName="rw-label rw-label-error"
         >
           Slug
@@ -59,7 +59,7 @@ const TaxonomyForm = (props) => {
 
         <Label
           name="type"
-          className="rw-label"
+          className="p-1 mt-2 mx-4"
           errorClassName="rw-label rw-label-error"
         >
           Type
@@ -77,7 +77,7 @@ const TaxonomyForm = (props) => {
 
         <Label
           name="description"
-          className="rw-label"
+          className="p-1 mt-2 mx-4"
           errorClassName="rw-label rw-label-error"
         >
           Description

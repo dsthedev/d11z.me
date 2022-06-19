@@ -64,9 +64,7 @@ const ResetPasswordPage = ({ resetToken }) => {
         <div className="rw-scaffold rw-login-container">
           <div className="rw-segment">
             <header className="text-3xl text-center">
-              <h2>
-                Reset Password
-              </h2>
+              <h2>Reset Password</h2>
             </header>
 
             <div className="max-w-40">
@@ -75,7 +73,7 @@ const ResetPasswordPage = ({ resetToken }) => {
                   <div className="text-left">
                     <Label
                       name="password"
-                      className="rw-label"
+                      className="p-1 mt-2 mx-4"
                       errorClassName="rw-label rw-label-error"
                     >
                       New Password

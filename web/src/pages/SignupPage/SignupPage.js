@@ -70,7 +70,7 @@ const SignupPage = () => {
                   />
                   <Label
                     name="username"
-                    className="rw-label"
+                    className="p-1 mt-2 mx-4"
                     errorClassName="rw-label rw-label-error"
                   >
                     Email
@@ -92,7 +92,7 @@ const SignupPage = () => {
                   />
                   <Label
                     name="password"
-                    className="rw-label"
+                    className="p-1 mt-2 mx-4"
                     errorClassName="rw-label rw-label-error"
                   >
                     Password

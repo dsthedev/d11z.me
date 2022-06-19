@@ -1,5 +1,5 @@
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -86,6 +86,27 @@ model Clew {
   loginURL   String? @default("")
   licenseKey String? @default("")
   notes      String? @default("")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt()
+}
+
+model Sup {
+  id Int @id @default(autoincrement())
+
+  manufacturer     String  @default("")
+  productRef       String  @default("")
+  name             String  @unique
+  collection       String?
+  type             String?
+  categories       String?
+  capsuleAmount    Int     @default(0)
+  servingSize      Int     @default(0)
+  wMeal            Boolean @default(false)
+  caution          String?
+  ingredients      String?
+  otherIngredients String?
+  proprietaryBlend String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt()

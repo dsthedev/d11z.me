@@ -26,7 +26,7 @@ const PostForm = (props) => {
 
         <Label
           name="authorId"
-          className="rw-label"
+          className="p-1 mt-2 mx-4"
           errorClassName="rw-label rw-label-error"
         >
           Author id
@@ -35,7 +35,7 @@ const PostForm = (props) => {
         <NumberField
           name="authorId"
           defaultValue={props.post?.authorId}
-          className="rw-input"
+          className="p-1 border-2 border-zinc-400 mb-6 mx-4"
           errorClassName="rw-input rw-input-error"
         />
 
@@ -43,7 +43,7 @@ const PostForm = (props) => {
 
         <Label
           name="parentId"
-          className="rw-label"
+          className="p-1 mt-2 mx-4"
           errorClassName="rw-label rw-label-error"
         >
           Parent id
@@ -52,7 +52,7 @@ const PostForm = (props) => {
         <NumberField
           name="parentId"
           defaultValue={props.post?.parentId}
-          className="rw-input"
+          className="p-1 border-2 border-zinc-400 mb-6 mx-4"
           errorClassName="rw-input rw-input-error"
         />
 
@@ -60,7 +60,7 @@ const PostForm = (props) => {
 
         <Label
           name="postType"
-          className="rw-label"
+          className="p-1 mt-2 mx-4"
           errorClassName="rw-label rw-label-error"
         >
           Post type
@@ -69,7 +69,7 @@ const PostForm = (props) => {
         <TextField
           name="postType"
           defaultValue={props.post?.postType}
-          className="rw-input"
+          className="p-1 border-2 border-zinc-400 mb-6 mx-4"
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
         />
@@ -78,7 +78,7 @@ const PostForm = (props) => {
 
         <Label
           name="isSticky"
-          className="rw-label"
+          className="p-1 mt-2 mx-4"
           errorClassName="rw-label rw-label-error"
         >
           Is sticky
@@ -87,7 +87,7 @@ const PostForm = (props) => {
         <CheckboxField
           name="isSticky"
           defaultChecked={props.post?.isSticky}
-          className="rw-input"
+          className="p-1 border-2 border-zinc-400 mb-6 mx-4"
           errorClassName="rw-input rw-input-error"
         />
 
@@ -95,7 +95,7 @@ const PostForm = (props) => {
 
         <Label
           name="pStatus"
-          className="rw-label"
+          className="p-1 mt-2 mx-4"
           errorClassName="rw-label rw-label-error"
         >
           P status
@@ -104,7 +104,7 @@ const PostForm = (props) => {
         <TextField
           name="pStatus"
           defaultValue={props.post?.pStatus}
-          className="rw-input"
+          className="p-1 border-2 border-zinc-400 mb-6 mx-4"
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
         />
@@ -113,7 +113,7 @@ const PostForm = (props) => {
 
         <Label
           name="title"
-          className="rw-label"
+          className="p-1 mt-2 mx-4"
           errorClassName="rw-label rw-label-error"
         >
           Title
@@ -122,7 +122,7 @@ const PostForm = (props) => {
         <TextField
           name="title"
           defaultValue={props.post?.title}
-          className="rw-input"
+          className="p-1 border-2 border-zinc-400 mb-6 mx-4"
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
         />
@@ -131,7 +131,7 @@ const PostForm = (props) => {
 
         <Label
           name="slug"
-          className="rw-label"
+          className="p-1 mt-2 mx-4"
           errorClassName="rw-label rw-label-error"
         >
           Slug
@@ -140,7 +140,7 @@ const PostForm = (props) => {
         <TextField
           name="slug"
           defaultValue={props.post?.slug}
-          className="rw-input"
+          className="p-1 border-2 border-zinc-400 mb-6 mx-4"
           errorClassName="rw-input rw-input-error"
         />
 
@@ -148,7 +148,7 @@ const PostForm = (props) => {
 
         <Label
           name="body"
-          className="rw-label"
+          className="p-1 mt-2 mx-4"
           errorClassName="rw-label rw-label-error"
         >
           Body
@@ -157,7 +157,7 @@ const PostForm = (props) => {
         <TextField
           name="body"
           defaultValue={props.post?.body}
-          className="rw-input"
+          className="p-1 border-2 border-zinc-400 mb-6 mx-4"
           errorClassName="rw-input rw-input-error"
         />
 

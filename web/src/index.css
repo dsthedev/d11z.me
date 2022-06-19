@@ -1,13 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&family=Milonga&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&family=Milonga&display=swap");
 /* @import url('https://fonts.googleapis.com/css2?family=Flow+Rounded&display=swap'); */
 /* @import url('https://fonts.googleapis.com/css2?family=Redacted+Script:wght@300&display=swap'); */
 
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "fontawesome-all.min.css";
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 body {
-  font-family: 'Source Sans Pro';
+  font-family: "Source Sans Pro";
 }
 
 header,
@@ -17,7 +18,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Milonga';
+  font-family: "Milonga";
   margin-bottom: 0.5rem;
 }
 
@@ -53,8 +54,8 @@ p {
   transition: all 0.2s ease-out;
 }
 
-.bar-group:hover>*,
-.bar-group:focus>*,
-.bar-group:active>* {
+.bar-group:hover > *,
+.bar-group:focus > *,
+.bar-group:active > * {
   background: white;
 }

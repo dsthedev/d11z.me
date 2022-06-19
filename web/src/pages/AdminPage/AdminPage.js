@@ -11,54 +11,7 @@ const AdminPage = () => {
       <MetaTags title="Admin" description="Admin page" />
 
       <main className="mx-auto mb-6 max-w-prose">
-        <header>
-          <ul className="flex flex-row justify-start">
-            <li>
-              <Link
-                className="p-2 mb-2 hover:border-b-2 hover:border-slate-800"
-                to={routes.admin()}
-              >
-                Admin
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="p-2 mb-2 hover:border-b-2 hover:border-slate-800"
-                to={routes.posts()}
-              >
-                Posts
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="p-2 mb-2 hover:border-b-2 hover:border-slate-800"
-                to={routes.taxonomies()}
-              >
-                Taxonomies
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="p-2 mb-2 hover:border-b-2 hover:border-slate-800"
-                to={routes.bookmarks()}
-              >
-                Bookmarks
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="p-2 mb-2 hover:border-b-2 hover:border-slate-800"
-                to={routes.clews()}
-              >
-                clews
-              </Link>
-            </li>
-          </ul>
-        </header>
-
-        <section>
-          <ProfileCell id={currentUser?.id ? currentUser.id : false} />
-        </section>
+        <ProfileCell id={currentUser?.id ? currentUser.id : false} />
       </main>
     </>
   )

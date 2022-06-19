@@ -22,8 +22,6 @@ export default async () => {
    */
   const importUsers = () => {
     try {
-      db.user.deleteMany()
-
       const source = require('./data/users.json')
       const data = []
 
@@ -186,8 +184,6 @@ export default async () => {
 
   const importClews = () => {
     try {
-      db.clew.deleteMany()
-
       const src = require('./data/clews.json')
       const data = []
 
@@ -234,11 +230,14 @@ export default async () => {
   //   }
   // }
 
-  // importUsers()
   // importPosts()
   // importTaxonomies()
   // importBookmarks()
-  // importClews()
-
   // importRates()
+
+  await db.user.deleteMany()
+  await db.clew.deleteMany()
+
+  importUsers()
+  importClews()
 }

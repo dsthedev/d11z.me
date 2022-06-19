@@ -4,7 +4,7 @@ import ClewsTable from 'src/components/Admin/ClewsTable'
 
 import downloadAsFile from 'src/util/DownloadAsFile'
 
-import '@fortawesome/fontawesome-free/js/all.js'
+// import '@fortawesome/fontawesome-free/js/all.js'
 
 const MAX_STRING_LENGTH = 150
 
@@ -112,9 +112,9 @@ const ClewsList = ({ clews }) => {
           <Link
             to={routes.editClew({ id: value })}
             title={'Edit Clew'}
-            className="inline-block p-2 text-white bg-indigo-800 hover:bg-indigo-900"
+            className="inline-block px-4 py-2 text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg"
           >
-            <i className="fa fa-pencil"></i>
+            <i className="fa fa-edit"></i>
             <span className="visually-hidden">Edit</span>
           </Link>
         )
@@ -132,19 +132,19 @@ const ClewsList = ({ clews }) => {
   }
 
   return (
-    <>
+    <main className="mx-auto max-w-lg">
       <section className="text-left">
         <ClewsTable columns={columns} data={clews} />
       </section>
-      <section className="text-center">
+      <section className="text-center text-xl">
         <button
           onClick={exportToJson}
-          className="text-sm px-3 py-1 mx-auto my-4 bg-fuchsia-600 hover:bg-fuchsia-900 text-white"
+          className="px-4 py-1 mx-auto my-6 bg-rose-500 hover:bg-rose-600 text-white rounded-lg transition-all hover:scale-110"
         >
-          Download as JSON
+          Export All <small className="text-xs">as JSON</small>
         </button>
       </section>
-    </>
+    </main>
   )
 }
 
